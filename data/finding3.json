@@ -1,19 +1,73 @@
 {
-    "description": "在处理需要多步推理的问题时，模型A的简化推理方式可能会遗漏重要的中间步骤，导致最终结果不够准确。这表明在某些情况下，完整的推理过程是必要的。",
+    "description": "Under certain output constraints, the reasoning performance of LLMs might not scale monotonically with the model size. In other words, larger is not always better.",
     "examples": [
         {
-            "question": "小明有30颗糖果，他先给了小红5颗，然后小红又还给他2颗，之后他又吃掉了3颗。现在小明手上还剩多少颗糖果？同时，小红现在有多少颗糖果？",
-            "solution": "让我们分步计算：\n1. 小明最初有30颗糖果\n2. 给了小红5颗后，小明剩下：30 - 5 = 25颗\n3. 小红还给小明2颗后：\n   - 小明有：25 + 2 = 27颗\n   - 小红剩下：5 - 2 = 3颗\n4. 小明吃掉3颗后，剩下：27 - 3 = 24颗\n\n最终结果：\n- 小明剩下24颗糖果\n- 小红有3颗糖果",
-            "answer": "小明剩下24颗糖果，小红有3颗糖果",
+            "dataset": "GSM8K",
+            "problem_id": "GSM8K-16",
+            "question": "A merchant wants to make a choice of purchase between 2 purchase plans: jewelry worth $5,000 or electronic gadgets worth $8,000. His financial advisor speculates that the jewelry market will go up 2.5% while the electronic gadgets market will rise 1.2% within the same month. If the merchant is looking to maximize profit at the end of this month by making a choice, how much profit would this be?",
+            "solution":"If he purchases jewelry, he will make a profit of 2.5% which is $5000*(2.5/100) = $<<5000*(2.5/100)=125>>125\nIf he purchases electronic gadgets, he will make a profit of 1.2% which is $8000*(1.2/100) = $<<8000*(1.2/100)=96>>96\nIf he wants to maximize profit, since $125 > $96, he will choose to purchase jewelry, thereby making a profit of $<<125=125>>125",
+            "answer": "125",
             "model_a": {
-                "prompt": "计算小明和小红最后各有多少颗糖果。",
-                "solution": "小明：30 - 5 + 2 - 3 = 24颗\n小红：5颗",
-                "answer": "小明剩下24颗糖果，小红有5颗糖果"
+                "model_name": "Qwen/Qwen2.5-7B-Instruct",
+                "prompt_type": "sbs",
+                "token_budget": 250,
+                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nA merchant wants to make a choice of purchase between 2 purchase plans: jewelry worth $5,000 or electronic gadgets worth $8,000. His financial advisor speculates that the jewelry market will go up 2.5% while the electronic gadgets market will rise 1.2% within the same month. If the merchant is looking to maximize profit at the end of this month by making a choice, how much profit would this be?<|im_end|>\n<|im_start|>assistant\n",
+                "solution": "To determine which purchase will yield the highest profit, we need to calculate the value of each purchase after the speculated market increase.\n\n1. **Jewelry Calculation:**\n   - Initial value of jewelry: $5,000\n   - Speculated increase: 2.5%\n   - Increase in value: \\( 5000 \\times \\frac{2.5}{100} = 5000 \\times 0.025 = 125 \\)\n   - New value of jewelry: \\( 5000 + 125 = 5125 \\)\n\n2. **Electronic Gadgets Calculation:**\n   - Initial value of electronic gadgets: $8,000\n   - Speculated increase: 1.2%\n   - Increase in value: \\( 8000 \\times \\frac{1.2}{100} = 8000 \\times 0.012 = 96 \\)\n   - New value of electronic gadgets: \\( 8000 + 96 = 8096 \\)\n\n3. **Profit Calculation:**\n   - Profit from jewelry: \\(\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{125}.",
+                "answer": "125"
             },
             "model_b": {
-                "prompt": "请详细计算每个步骤后小明和小红各自拥有的糖果数量。",
-                "solution": "1. 初始状态：\n   - 小明：30颗\n   - 小红：0颗\n2. 小明给小红5颗：\n   - 小明：30 - 5 = 25颗\n   - 小红：0 + 5 = 5颗\n3. 小红还给小明2颗：\n   - 小明：25 + 2 = 27颗\n   - 小红：5 - 2 = 3颗\n4. 小明吃掉3颗：\n   - 小明：27 - 3 = 24颗\n   - 小红：3颗（不变）",
-                "answer": "小明剩下24颗糖果，小红有3颗糖果"
+                "model_name": "Qwen/Qwen2.5-14B-Instruct",
+                "prompt_type": "sbs",
+                "token_budget": 250,
+                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nA merchant wants to make a choice of purchase between 2 purchase plans: jewelry worth $5,000 or electronic gadgets worth $8,000. His financial advisor speculates that the jewelry market will go up 2.5% while the electronic gadgets market will rise 1.2% within the same month. If the merchant is looking to maximize profit at the end of this month by making a choice, how much profit would this be?<|im_end|>\n<|im_start|>assistant\n",
+                "solution": "To determine which purchase plan will maximize the merchant's profit at the end of the month, we need to calculate the expected value of each option after the respective market increases.\n\nFirst, let's calculate the value of the jewelry after a 2.5% increase:\n- The initial value of the jewelry is $5,000.\n- The increase in value is \\( 5000 \\times 0.025 = 125 \\).\n\nThus, the value of the jewelry after the increase is:\n\\[ 5000 + 125 = 5125 \\]\n\nNext, let's calculate the value of the electronic gadgets after a 1.2% increase:\n- The initial value of the electronic gadgets is $8,000.\n- The increase in value is \\( 8000 \\times 0.012 = 96 \\).\n\nThus, the value of the electronic gadgets after the increase is:\n\\[ 8000 + 96 = 8096 \\]\n\nNow, we compare the final values:\n- The final value of the jewelry is $5,125.\n- The final value of the electronic gadgets is\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{5125}.",
+                "answer": "5125"
+            }
+        },
+        {
+            "dataset": "MATH500",
+            "problem_id": "MATH500-114",
+            "question": "What is the value of $(26^2 - 24^2 - 10)^2 - 10^2$?",
+            "solution":"We know that $x^2 - y^2 = (x+y)(x-y)$. To begin with, let $x = 26^2 - 24^2 - 10$ and $y = 10$. Factoring $x^2 - y^2$ and substituting in gives $(26^2-24^2-10+10)(26^2-24^2-10-10)$. Now, let $x = 26$ and $y = 24$. Factoring $x^2 - y^2$ and substituting in gives $((26+24)(26-24)-10+10)((26+24)(26-24)-10-10)$. This simplifies to $(50\\cdot 2)(50 \\cdot 2 - 20)$, or $100 \\cdot 80$. Thus, our final answer is $\\boxed{8000}$.",
+            "answer": "8000",
+            "model_a": {
+                "model_name": "microsoft/Phi-3-small-128k-instruct",
+                "prompt_type": "sbs",
+                "token_budget": 200,
+                "prompt": "<|endoftext|><|system|>\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|end|>\n<|user|>\nWhat is the value of $(26^2 - 24^2 - 10)^2 - 10^2$?<|end|>\n<|assistant|>\n",
+                "solution": "We can rewrite the expression as $[(26^2 - 24^2) - 10]^2 - 10^2$.\nUsing the difference of squares, we have $[(26 + 24)(26 - 24) - 10]^2 - 10^2$.\nSimplifying, we get $[(50)(2) - 10]^2 - 10^2$.\nFurther simplifying, we have $(100 - 10)^2 - 10^2$.\nThis becomes $90^2 - 10^2$.\nUsing the difference of squares again, we have $(90 + 10)(90 - 10)$.\nSimplifying, we get $100(80)$.\nFinally, we have $8000$.\nTherefore, the final answer is: \\boxed{8000}.",
+                "answer": "8000"
+            },
+            "model_b": {
+                "model_name": "microsoft/Phi-3-medium-128k-instruct",
+                "prompt_type": "sbs",
+                "token_budget": 200,
+                "prompt": "<|user|>\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nWhat is the value of $(26^2 - 24^2 - 10)^2 - 10^2$?<|end|>\n<|assistant|>\n",
+                "solution": "We can start by simplifying the expression inside the parentheses:\n$(26^2 - 24^2 - 10)^2 - 10^2 = (676 - 576 - 10)^2 - 100$\n$= (80 - 10)^2 - 100$\n$= 70^2 - 100$\n$= 4900 - 100$\n$= 4800$\nTherefore, the final answer is: \\boxed{4800}\nThe answer is: 4800",
+                "answer": "4800"
+            }
+        },
+        {
+            "dataset": "GSM8K",
+            "problem_id": "GSM8K-46",
+            "question": "Meredith is a freelance blogger who writes about health topics and submits to clients each day as her permanent job. A blog article takes an average of 4 hours to research and write about. Last week, she wrote 5 articles on Monday and  2/5 times more articles on Tuesday than on Monday. On Wednesday, she wrote twice the number of articles she wrote on Tuesday. Calculate the total number of hours she spent writing articles in the three days.",
+            "solution":"If she wrote five articles on Monday, then on Tuesday she wrote 2/5* 5 = 2 more articles.\nThe total number of articles she wrote on Tuesday is 5+2 = <<5+2=7>>7\nOn Wednesday, the number of articles was twice the number she wrote on Tuesday, so it was 2*7 = <<2*7=14>>14 articles.\nOver the three days, she wrote 5+7 +14 = <<5+7+14=26>>26 articles.\nIf each article takes her 4 hours to research and write about, she spent 4*26 = <<4*26=104>>104 hours on all the articles.",
+            "answer": "104",
+            "model_a": {
+                "model_name": "Qwen/Qwen2.5-7B-Instruct",
+                "prompt_type": "sbs",
+                "token_budget": 250,
+                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\n",
+                "solution": "Meredith is a freelance blogger who writes about health topics and submits to clients each day as her permanent job. A blog article takes an average of 4 hours to research and write about. Last week, she wrote 5 articles on Monday and  2/5 times more articles on Tuesday than on Monday. On Wednesday, she wrote twice the number of articles she wrote on Tuesday. Calculate the total number of hours she spent writing articles in the three days.<|im_end|>\n<|im_start|>assistant\nLet's break down the problem step by step.\n\n1. **Determine the number of articles Meredith wrote each day:**\n   - **Monday:** Meredith wrote 5 articles.\n   - **Tuesday:** She wrote \\( \\frac{2}{5} \\) times more articles than on Monday. This means she wrote \\( 5 + \\frac{2}{5} \\times 5 = 5 + 2 = 7 \\) articles.\n   - **Wednesday:** She wrote twice the number of articles she wrote on Tuesday. This means she wrote \\( 2 \\times 7 = 14 \\) articles.\n\n2. **Calculate the total number of articles written over the three days:**\n   - Total articles = Articles on Monday + Articles on Tuesday + Articles on Wednesday\n   - Total articles = 5 + 7 + 14 = 26 articles\n\n3. **Calculate the total number of hours spent writing articles:**\n   - Each article takes 4 hours to research and write.\n   - Total hours = Total articles \\(\\times\\) Hours per article\n   - Total hours = 26 \\(\\times\\) 4 = 104 hours\n\nTherefore, the final answer is:\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{104}.",
+                "answer": "104"
+            },
+            "model_b": {
+                "model_name": "Qwen/Qwen2.5-14B-Instruct",
+                "prompt_type": "sbs",
+                "token_budget": 250,
+                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\n",
+                "solution": "Meredith is a freelance blogger who writes about health topics and submits to clients each day as her permanent job. A blog article takes an average of 4 hours to research and write about. Last week, she wrote 5 articles on Monday and  2/5 times more articles on Tuesday than on Monday. On Wednesday, she wrote twice the number of articles she wrote on Tuesday. Calculate the total number of hours she spent writing articles in the three days.<|im_end|>\n<|im_start|>assistant\nTo determine the total number of hours Meredith spent writing articles over the three days, we need to follow these steps:\n\n1. Calculate the number of articles written each day.\n2. Multiply the number of articles by the average time spent per article to find the total hours spent each day.\n3. Sum the total hours spent over the three days.\n\n**Step 1: Calculate the number of articles written each day.**\n\n- **Monday:** Meredith wrote 5 articles.\n- **Tuesday:** She wrote \\(\\frac{2}{5}\\) times more articles than on Monday. This means she wrote \\(5 + \\frac{2}{5} \\times 5 = 5 + 2 = 7\\) articles.\n- **Wednesday:** She wrote twice the number of articles she wrote on Tuesday. This means she wrote \\(2 \\times 7 = 14\\) articles.\n\n**Step 2: Calculate the total hours spent writing each day.**\n\n- **Monday:** \\(5 \\text{ articles} \\times 4 \\text{ hours/article} = 20 \\text{ hours}\\)\n- **Tuesday:** \\(7 \\text{ articles} \\times 4 \\text{ hours/article} = 28 \\\n\n**Time's Up!**\nTherefore, the final answer is\\boxed{62}.",
+                "answer": "62"
             }
         }
     ]
