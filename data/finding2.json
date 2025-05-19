@@ -5,6 +5,7 @@
             "dataset": "GSM8K",
             "problem_id": "GSM8K-53",
             "question": "Uriah's book bag is getting too heavy for him. He needs to remove 15 pounds from it. His comic books weigh 1/4 pound each and his toys weigh 1/2 pound each. If he removes 30 comic books, how many toys does he need to remove?",
+            "solution":"30 comic books weigh 7.5 pounds because 30 x .25 = <<30*.25=7.5>>7.5\nHe needs to remove 7.5 more pounds because 15 - 7.5 = <<15-7.5=7.5>>7.5\nHe needs to remove 15 toys because 7.5 / .5 = <<15=15>>15"
             "answer": "15",
             "model_a": {
                 "model_name": "Qwen/Qwen2.5-7B-Instruct",
@@ -35,6 +36,7 @@
             "dataset": "MATH500",
             "problem_id": "MATH500-26",
             "question": "The function $f$ satisfies the functional equation\n\\[f(x) + f(y) = f(x + y) - xy - 1\\]for all real numbers $x$ and $y.$  If $f(1) = 1,$ then find all integers $n$ such that $f(n) = n.$  Enter all such integers, separated by commas.",
+            "solution":"Setting $x = y = 0,$ we get\n\\[2f(0) = f(0) - 1,\\]so $f(0) = -1.$\n\nSetting $y = 1,$ we get\n\\[f(x) + 1 = f(x + 1) - x - 1,\\]so\n\\[f(x + 1) - f(x) = x + 2.\\]Thus,\n\\begin{align*}\nf(2) - f(1) &= 1 + 2, \\\\\nf(3) - f(2) &= 2 + 2, \\\\\nf(4) - f(3) &= 3 + 2, \\\\\n&\\dots, \\\\\nf(n) - f(n - 1) &= (n - 1) + 2.\n\\end{align*}Adding all the equations, we get\n\\[f(n) - f(1) = 1 + 2 + 3 + \\dots + (n - 1) + 2(n - 1) = \\frac{(n - 1)n}{2} + 2n - 2 = \\frac{n^2 + 3n - 4}{2},\\]so\n\\[f(n) = \\frac{n^2 + 3n - 2}{2}\\]for all positive integers $n.$\n\nSetting $x = -n$ and $y = n,$ where $n$ is a positive integer, we get\n\\[f(-n) + f(n) = f(0) + n^2 - 1.\\]Then\n\\[f(-n) = n^2 - f(n) + f(0) - 1 = n^2 - \\frac{n^2 + 3n - 2}{2} - 2 = \\frac{n^2 - 3n - 2}{2}.\\]Thus, the formula\n\\[f(n) = \\frac{n^2 + 3n - 2}{2}\\]holds for all integers $n.$\n\nWe want to solve $f(n) = n,$ or\n\\[\\frac{n^2 + 3n - 2}{2} = n.\\]Then $n^2 + 3n - 2 = 2n,$ or $n^2 + n - 2 = 0.$  This factors as $(n - 1)(n + 2) = 0,$ so the solutions are $n = \\boxed{1,-2}.$"
             "answer": "1,-2",
             "model_a": {
                 "model_name": "microsoft/phi-4",
