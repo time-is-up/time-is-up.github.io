@@ -9,7 +9,7 @@
             "answer": "15",
             "model_a": {
                 "model_name": "Qwen/Qwen2.5-7B-Instruct",
-                "prompt_type": "sbs",
+                "prompt_type": "step-by-step",
                 "token_budget": 100,
                 "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nUriah's book bag is getting too heavy for him. He needs to remove 15 pounds from it. His comic books weigh 1/4 pound each and his toys weigh 1/2 pound each. If he removes 30 comic books, how many toys does he need to remove?<|im_end|>\n<|im_start|>assistant\n",
                 "solution": "Let's break down the problem step by step.\n\n1. **Determine the weight of the comic books removed:**\n   - Each comic book weighs \\( \\frac{1}{4} \\) pound.\n   - Uriah removes 30 comic books.\n   - Total weight of comic books removed: \\( 30 \\times \\frac{1}{4} = \\frac{30}{4} = 7.5 \\) pounds.\n\n2. **Calculate the remaining weight to\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{10}.",
@@ -17,7 +17,7 @@
             },
             "model_b": {
                 "model_name": "Qwen/Qwen2.5-7B-Instruct",
-                "prompt_type": "c2f",
+                "prompt_type": "coarse-to-fine",
                 "token_budget": 100,
                 "prompt": "<|im_start|>system\nUse the following pattern to solve the problem:\n**Coarse-Grained Reasoning**\nProvide a brief analysis and initial answer, focusing on efficiency and conciseness.\n\n**Fine-Grained Reasoning**\nProvide detailed reasoning step by step and a refined answer, focusing on correctness and rigor.\n\nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nUriah's book bag is getting too heavy for him. He needs to remove 15 pounds from it. His comic books weigh 1/4 pound each and his toys weigh 1/2 pound each. If he removes 30 comic books, how many toys does he need to remove?<|im_end|>\n<|im_start|>assistant\n",
                 "solution": "**Coarse-Grained Reasoning**\nFirst, calculate the weight of the comic books removed, then determine how much more weight needs to be removed, and finally, calculate how many toys need to be removed to achieve the total weight reduction.\n\n**Fine-Grained Reasoning**\n1. Each comic book weighs 1/4 pound, and Uriah removes 30 comic books. Therefore, the total weight of the comic books removed is:\n   \\[\n   30 \\times \\\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{30}.",
@@ -25,7 +25,7 @@
             },
             "model_c": {
                 "model_name": "Qwen/Qwen2.5-7B-Instruct",
-                "prompt_type": "aav",
+                "prompt_type": "answer-and-verify",
                 "token_budget": 100,
                 "prompt": "<|im_start|>system\nUse the following pattern to solve the problem:\n**Quick Answer**\nProvide an initial answer based on intuition or quick calculation.\n\n**Verification**\nProvide a revised answer through reasoning step by step. Correct previous mistakes, if any.\n\nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nUriah's book bag is getting too heavy for him. He needs to remove 15 pounds from it. His comic books weigh 1/4 pound each and his toys weigh 1/2 pound each. If he removes 30 comic books, how many toys does he need to remove?<|im_end|>\n<|im_start|>assistant\n",
                 "solution": "**Quick Answer**\nIf he removes 30 comic books, they weigh \\(30 \\times \\frac{1}{4} = 7.5\\) pounds. He needs to remove 15 pounds in total, so he needs to remove \\(15 - 7.5 = 7.5\\) pounds from toys. Since each toy weighs 0.5 pounds, he needs to remove \\(7.5 \\div 0.5 = 15\\) toys.\n\n**\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{15}.",
@@ -40,7 +40,7 @@
             "answer": "1,-2",
             "model_a": {
                 "model_name": "microsoft/phi-4",
-                "prompt_type": "sbs",
+                "prompt_type": "step-by-step",
                 "token_budget": 200,
                 "prompt": "<|im_start|>system<|im_sep|>Please reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|><|im_start|>user<|im_sep|>The function $f$ satisfies the functional equation\n\\[f(x) + f(y) = f(x + y) - xy - 1\\]for all real numbers $x$ and $y.$  If $f(1) = 1,$ then find all integers $n$ such that $f(n) = n.$  Enter all such integers, separated by commas.<|im_end|><|im_start|>assistant<|im_sep|>",
                 "solution": "To solve the problem, we start by analyzing the given functional equation:\n\n\\[\nf(x) + f(y) = f(x+y) - xy - 1\n\\]\n\nWe are also given that \\( f(1) = 1 \\).\n\n**Step 1: Find \\( f(0) \\).**\n\nSet \\( x = 0 \\) and \\( y = 0 \\) in the functional equation:\n\n\\[\nf(0) + f(0) = f(0 + 0) - 0 \\cdot 0 - 1\n\\]\n\nThis simplifies to:\n\n\\[\n2f(0) = f(0) - 1\n\\]\n\nSolving for \\( f(0) \\), we get:\n\n\\[\n2f(0) - f(0) = -1 \\quad \\Rightarrow \\quad f\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{0, 1}.",
@@ -48,7 +48,7 @@
             },
             "model_b": {
                 "model_name": "microsoft/phi-4",
-                "prompt_type": "c2f",
+                "prompt_type": "coarse-to-fine",
                 "token_budget": 200,
                 "prompt": "<|im_start|>system<|im_sep|>Use the following pattern to solve the problem:\n**Coarse-Grained Reasoning**\nProvide a brief analysis and initial answer, focusing on efficiency and conciseness.\n\n**Fine-Grained Reasoning**\nProvide detailed reasoning step by step and a refined answer, focusing on correctness and rigor.\n\nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|><|im_start|>user<|im_sep|>The function $f$ satisfies the functional equation\n\\[f(x) + f(y) = f(x + y) - xy - 1\\]for all real numbers $x$ and $y.$  If $f(1) = 1,$ then find all integers $n$ such that $f(n) = n.$  Enter all such integers, separated by commas.<|im_end|><|im_start|>assistant<|im_sep|>",
                 "solution": "To solve the problem, we need to find all integers \\( n \\) such that \\( f(n) = n \\) given the functional equation:\n\n\\[\nf(x) + f(y) = f(x + y) - xy - 1\n\\]\n\nand the condition \\( f(1) = 1 \\).\n\n### Coarse-Grained Reasoning\n\nFirst, let's substitute specific values to gain insight into the function \\( f \\).\n\n1. **Substitute \\( y = 0 \\):**\n\n   \\[\n   f(x) + f(0) = f(x + 0) - x \\cdot 0 - 1 \\implies f(x) + f(0) = f(x) - 1\n   \\]\n\n   This simplifies to:\n\n   \\[\n   f(0) = -1\n   \\]\n\n\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{1}.\n\n### Fine-Grained Reasoning\n\nLet's continue with the analysis:\n\n2. **Sub",
@@ -56,7 +56,7 @@
             },
             "model_c": {
                 "model_name": "microsoft/phi-4",
-                "prompt_type": "aav",
+                "prompt_type": "answer-and-verify",
                 "token_budget": 200,
                 "prompt": "<|im_start|>system<|im_sep|>Use the following pattern to solve the problem:\n**Quick Answer**\nProvide an initial answer based on intuition or quick calculation.\n\n**Verification**\nProvide a revised answer through reasoning step by step. Correct previous mistakes, if any.\n\nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|><|im_start|>user<|im_sep|>The function $f$ satisfies the functional equation\n\\[f(x) + f(y) = f(x + y) - xy - 1\\]for all real numbers $x$ and $y.$  If $f(1) = 1,$ then find all integers $n$ such that $f(n) = n.$  Enter all such integers, separated by commas.<|im_end|><|im_start|>assistant<|im_sep|>",
                 "solution": "**Quick Answer**\n\nLet's start by substituting \\( y = 0 \\) into the functional equation:\n\n\\[\nf(x) + f(0) = f(x + 0) - x \\cdot 0 - 1 \\implies f(x) + f(0) = f(x) - 1\n\\]\n\nThis simplifies to:\n\n\\[\nf(0) = -1\n\\]\n\nNext, substitute \\( y = 1 \\) into the functional equation:\n\n\\[\nf(x) + f(1) = f(x + 1) - x \\cdot 1 - 1 \\implies f(x) + 1 = f(x + 1) - x - 1\n\\]\n\nRearranging gives:\n\n\\[\nf(x + 1) = f(x) + x + 2\n\\\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{1}\n\n**Verification**\n\nLet's verify and find a general form for \\( f(x) \\).\n\nWe have",
