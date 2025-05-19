@@ -1,6 +1,6 @@
 {
     "description": "Compared to directly terminating at token budget, early stopping consistently improves LLMs’ reasoning performance on all combinations of datasets (GSM8K and MATH500) and prompts (sbs, c2f, and aav) in our evaluation.",
-    "examples1": [
+    "example1": [
         {
             "dataset": "GSM8K",
             "problem_id": "GSM8K-19",
