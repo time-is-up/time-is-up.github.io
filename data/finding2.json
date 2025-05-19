@@ -1,6 +1,6 @@
 {
     "description": "While there is no one-fits-all optimal prompt, coarse-to-fine (c2f) and answer-and-verify (aav) outperform step-by-step (sbs) in most scenarios under output length constraint.",
-    "example1": [
+    "examples": [
         {
             "dataset": "GSM8K",
             "problem_id": "GSM8K-53",
@@ -30,9 +30,7 @@
                 "solution": "**Quick Answer**\nIf he removes 30 comic books, they weigh \\(30 \\times \\frac{1}{4} = 7.5\\) pounds. He needs to remove 15 pounds in total, so he needs to remove \\(15 - 7.5 = 7.5\\) pounds from toys. Since each toy weighs 0.5 pounds, he needs to remove \\(7.5 \\div 0.5 = 15\\) toys.\n\n**\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{15}.",
                 "answer": "30 comic books weigh 7.5 pounds because 30 x .25 = <<30*.25=7.5>>7.5\nHe needs to remove 7.5 more pounds because 15 - 7.5 = <<15-7.5=7.5>>7.5\nHe needs to remove 15 toys because 7.5 / .5 = <<15=15>>15\n#### 15"
             }
-        }
-    ],
-    "example2":[
+        },
         {
             "dataset": "MATH500",
             "problem_id": "MATH500-26",
