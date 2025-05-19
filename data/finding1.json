@@ -1,0 +1,51 @@
+{
+    "description": "在有限的输出长度限制下，模型A通过更简洁的推理过程达到了与模型B相似的准确率。这表明在资源受限的情况下，简洁的推理可能比详细的推理更有效。",
+    "examples": [
+        {
+            "dataset": "GSM8K",
+            "problem_id": "1",
+            "question": "一个商店在周一卖出了120个苹果，周二比周一多卖出15个，周三比周二少卖出8个。请问这三天一共卖出了多少个苹果？",
+            "solution": "让我们一步步计算：\n1. 周一卖出120个苹果\n2. 周二卖出：120 + 15 = 135个苹果\n3. 周三卖出：135 - 8 = 127个苹果\n4. 三天总共：120 + 135 + 127 = 382个苹果",
+            "answer": "382个苹果",
+            "model_a": {
+                "model_name": "GPT-4",
+                "prompt_type": "zero-shot",
+                "token_budget": 150,
+                "prompt": "请计算三天总共卖出的苹果数量。注意保持答案简洁明了。",
+                "solution": "周一120个\n周二135个\n周三127个\n总共382个",
+                "answer": "382个苹果"
+            },
+            "model_b": {
+                "model_name": "Claude-2",
+                "prompt_type": "sbs",
+                "token_budget": 500,
+                "prompt": "请详细解释计算过程，并给出最终答案。",
+                "solution": "我们来逐步计算：\n1. 首先，周一卖出120个苹果\n2. 周二比周一多卖15个，所以周二卖出：120 + 15 = 135个苹果\n3. 周三比周二少卖8个，所以周三卖出：135 - 8 = 127个苹果\n4. 现在我们把三天的数量加起来：120 + 135 + 127 = 382个苹果",
+                "answer": "382个苹果"
+            }
+        },
+        {
+            "dataset": "MATH500",
+            "problem_id": "2",
+            "question": "test2",
+            "solution": "test2",
+            "answer": "test2",
+            "model_a": {
+                "model_name": "GPT-o1",
+                "prompt_type": "c2f",
+                "token_budget": 150,
+                "prompt": "test2",
+                "solution": "test2",
+                "answer": "test2"
+            },
+            "model_b": {
+                "model_name": "Claude-3",
+                "prompt_type": "aav",
+                "token_budget": 500,
+                "prompt": "test2",
+                "solution": "test2",
+                "answer": "test2"
+            }
+        }
+    ]
+}

@@ -1,0 +1,433 @@
+/* 全局样式 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3, h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #3498db;
+    font-weight: 500;
+}
+
+section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+}
+
+/* 选择面板样式 */
+.selection-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.selection-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.selection-item {
+    flex: 1;
+    min-width: 200px;
+}
+
+.selection-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+}
+
+.setup-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    align-self: flex-end;
+    transition: background-color 0.2s;
+}
+
+.setup-btn:hover {
+    background-color: #2980b9;
+}
+
+/* 模型配置区域样式 */
+.model-config-section {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #ddd;
+}
+
+/* 模型A的配置区域 */
+.model-config-section:nth-of-type(2) {
+    border-left-color: #3498db;
+    background-color: #f0f9ff;
+}
+
+/* 模型B的配置区域 */
+.model-config-section:nth-of-type(3) {
+    border-left-color: #2ecc71;
+    background-color: #f0fff4;
+}
+
+/* 性能统计面板样式 */
+.stats-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.model-a-stats {
+    flex: 1;
+    min-width: 300px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    background-color: #f0f9ff;
+    border-left: 4px solid #3498db;
+}
+
+.model-b-stats {
+    flex: 1;
+    min-width: 300px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    background-color: #f0fff4;
+    border-left: 4px solid #2ecc71;
+}
+
+/* 可视化面板样式 */
+.problem-selector {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.problem-select-container {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+/* 设定具体元素的属性，使用#符号 */
+#problem-select {
+    width: 70px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#problem-total-count {
+    margin: 0 10px;
+    color: #666;
+}
+
+.nav-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-left: 10px;
+}
+
+.nav-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* 问题内容样式 */
+.problem-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #9b59b6;
+}
+
+.original-problem, .standard-solution, .standard-answer {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.problem-content, .solution-content, .answer-content {
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    margin-bottom: 10px;
+}
+
+/* 模型比较样式 */
+.models-comparison {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.model-solution {
+    flex: 1;
+    min-width: 300px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.model-a-solution {
+    background-color: #f0f9ff;
+    border-left: 4px solid #3498db;
+}
+
+.model-b-solution {
+    background-color: #f0fff4;
+    border-left: 4px solid #2ecc71;
+}
+
+.prompt-content {
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    margin-bottom: 10px;
+}
+
+.answer-content {
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    margin-bottom: 10px;
+}
+
+.answer-status {
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.answer-correct {
+    color: #27ae60;
+}
+
+.answer-incorrect {
+    color: #e74c3c;
+}
+
+/* 加载指示器样式 */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .selection-row, .stats-container, .models-comparison {
+        flex-direction: column;
+    }
+    
+    .selection-item, .stats-card, .model-solution {
+        width: 100%;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+}
+
+/* 添加或修改以下样式 */
+.finding-header {
+    display: flex;
+    justify-content: flex-start;  /* 改为flex-start让元素靠左对齐 */
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;  /* 添加整体的gap来控制元素间距 */
+}
+
+.finding-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.finding-title h2 {
+    margin: 0;
+}
+
+.finding-title select {
+    width: 60px;
+    height: 28px;
+    padding: 2px 5px;
+    font-size: 14px;
+    margin: 0;
+}
+
+.setup-btn {
+    margin-left: 10px;  /* 添加左边距，与下拉框保持适当距离 */
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    height: 28px;
+    line-height: 1;
+    align-self: center;  /* 修改这里，从flex-end改为center */
+}
+
+.description-content {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-y: auto;
+}
+
+.description-content {
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    min-height: 80px;
+}
+
+/* 数据集信息框样式 */
+.dataset-section {
+    margin: 15px 0;
+}
+
+.dataset-info-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border-left: 4px solid #9b59b6;
+}
+
+.dataset-label {
+    font-weight: 600;  /* 加粗字体 */
+    color: #34495e;    /* 更深的颜色 */
+    font-size: 14px;   /* 调整字体大小 */
+}
+
+.dataset-value {
+    color: #2c3e50;
+    font-weight: 500;  /* 稍微加粗 */
+    font-size: 14px;
+}
+
+/* 模型信息框样式 */
+.model-info-box {
+    display: flex;
+    gap: 20px;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.9);  /* 增加不透明度 */
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);  /* 添加底部边框 */
+}
+
+.model-info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-label {
+    font-weight: 600;  /* 加粗字体 */
+    color: #34495e;    /* 更深的颜色 */
+    font-size: 14px;   /* 调整字体大小 */
+}
+
+.info-value {
+    color: #2c3e50;
+    font-weight: 500;  /* 稍微加粗 */
+    font-size: 14px;
+}
