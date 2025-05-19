@@ -1,6 +1,6 @@
 {
     "description": "Compared to directly terminating at token budget, early stopping consistently improves LLMs’ reasoning performance on all combinations of datasets (GSM8K and MATH500) and prompts (sbs, c2f, and aav) in our evaluation.",
-    "example1": [
+    "examples": [
         {
             "dataset": "GSM8K",
             "problem_id": "GSM8K-19",
@@ -22,9 +22,7 @@
                 "solution": "To determine how many dozens of eggs Claire will eat in 4 weeks, we need to follow these steps:\n\n1. **Calculate the total number of eggs used per day:**\n   Claire makes a 3 egg omelet every morning.\n\n   \\[\n   \\text{Eggs per day} = 3\n   \\]\n\n2. **Calculate the total number of eggs used per week:**\n   There are 7 days in a week.\n\n   \\[\n   \\text{Eggs per week} = 3 \\text{ eggs/day} \\times 7 \\text{ days/week} = 21 \\text{ eggs/week}\n   \\]\n\n3. **Calculate the total number of eggs used",
                 "answer": "She eats 3 eggs every day and there are 7 days in a week so she eats 3*7 = <<3*7=21>>21 eggs a week\nAfter 4 weeks she will have eaten 4*21 = <<4*21=84>>84 eggs\nThere are 12 eggs in 1 dozen and she'll eat 84 eggs so that's 84/12 = <<84/12=7>>7 dozen eggs\n#### 7"
             }
-        }
-    ],
-    "example2":[
+        },
         {
             "dataset": "GSM8K",
             "problem_id": "GSM8K-25",
@@ -46,9 +44,7 @@
                 "solution": "To find the original price of the book, we need to work backwards from the discounted price.\n\n1. Let's denote the original price as \\( P \\).\n2. Kyle received a 25% discount, which means he paid 75% of the original price.\n3. The equation representing the discounted price is: \\( 0.75P = 19.50 \\).\n4. To find the original price \\( P \\",
                 "answer": "Let X be the original price of the book. The discounted price is X - X*25% = $19.50.\nCombining like terms, we get .75X = $19.50\nDividing both sides by .75, we get X = $26.\n#### 26"
             }
-        }
-    ],
-    "example3":[
+        },
         {
             "dataset": "GSM8K",
             "problem_id": "GSM8K-34",
