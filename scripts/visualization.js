@@ -1,6 +1,5 @@
 class Visualizer {
     constructor() {
-        // 初始化
         this.setupMathJax();
     }
     
@@ -38,12 +37,6 @@ class Visualizer {
 
     
     showProblemComparison(problemId, dataLoader) {
-        // 清空现有内容
-        document.getElementById('original-problem').innerHTML = '';
-        document.getElementById('standard-solution').innerHTML = '';
-        document.getElementById('standard-answer').innerHTML = '';
-        document.getElementById('dataset-info').innerHTML = '';
-        
         // 获取问题数据
         const problemData = dataLoader.getProblemData(problemId);
         const modelAData = dataLoader.getModelAData(problemId);
@@ -54,53 +47,59 @@ class Visualizer {
             return;
         }
         
-        // 显示原始问题和标准答案
-        this.showOriginalProblem(problemData);
-        
-        // 显示模型A的解答
-        if (modelAData) {
-            this.showModelSolution('a', modelAData);
-        } else {
-            this.clearModelSolution('a');
-        }
-        
-        // 显示模型B的解答
-        if (modelBData) {
-            this.showModelSolution('b', modelBData);
-        } else {
-            this.clearModelSolution('b');
-        }
-    }
-    
-    // 显示原始问题和标准答案
-    showOriginalProblem(problemData) {
-        const originalProblemEl = document.getElementById('original-problem');
-        const standardSolutionEl = document.getElementById('standard-solution');
-        const standardAnswerEl = document.getElementById('standard-answer');
-        
         // 更新数据集和问题ID显示
         document.getElementById('dataset-name').textContent = problemData.dataset || 'N/A';
         document.getElementById('problem-id').textContent = problemData.problem_id || 'N/A';
         
-        // 显示问题，保持原始格式
-        originalProblemEl.innerHTML = this.formatMathContent(problemData.question) || 'Question not available';
+        // 显示问题内容
+        document.getElementById('original-problem').innerHTML = this.formatMathContent(problemData.question) || 'Question not available';
+        document.getElementById('standard-solution').innerHTML = this.formatMathContent(problemData.solution) || 'Standard solution not available';
         
-        // 显示标准解答
-        standardSolutionEl.innerHTML = this.formatMathContent(problemData.solution) || 'Standard solution not available';
+        // 显示标准答案
+        let standardAnswer = problemData.answer ? 
+            this.formatAnswer(problemData.answer) : 
+            'Standard answer not available';
+        document.getElementById('standard-answer').innerHTML = standardAnswer;
         
-        // 显示标准答案，使用boxed形式并添加行内公式环境
-        let standardAnswer = 'Standard answer not available';
-        if (problemData.answer) {
-            const answerText = problemData.answer.trim();
-            // 直接添加boxed和行内公式环境，不进行检查
-            standardAnswer = this.formatMathContent(`\\(\\boxed{${answerText}}\\)`);
-        }
-        standardAnswerEl.innerHTML = standardAnswer;
-
+        // 统一显示模型结果
+        this.displayModelResult('a', modelAData, problemData.answer);
+        this.displayModelResult('b', modelBData, problemData.answer);
+        
         // 渲染数学公式
         this.renderMath();
     }
     
+    // 统一显示模型结果的函数
+    displayModelResult(modelKey, modelData, standardAnswer) {
+        if (!modelData) return;
+        
+        // 更新模型基本信息
+        document.getElementById(`model-${modelKey}-prompt-type`).textContent = modelData.prompt_type || 'N/A';
+        document.getElementById(`model-${modelKey}-token-budget`).textContent = modelData.token_budget || 'N/A';
+        
+        // 更新模型输出内容
+        document.getElementById(`model-${modelKey}-prompt`).innerHTML = this.formatMathContent(modelData.prompt) || 'Model prompt not available';
+        document.getElementById(`model-${modelKey}-solution`).innerHTML = this.formatMathContent(modelData.solution) || 'Model solution not available';
+        document.getElementById(`model-${modelKey}-answer`).innerHTML = this.formatAnswer(modelData.answer);
+        
+        // 更新答案状态
+        const statusEl = document.getElementById(`model-${modelKey}-status`);
+        if (modelData.answer && standardAnswer) {
+            const isCorrect = modelData.answer.trim() === standardAnswer.trim();
+            statusEl.innerHTML = isCorrect ? '✓ Correct' : '✗ Wrong';
+            statusEl.className = `answer-status answer-${isCorrect ? 'correct' : 'incorrect'}`;
+        } else {
+            statusEl.innerHTML = '? Unknown';
+            statusEl.className = 'answer-status';
+        }
+    }
+    
+    // 格式化答案显示
+    formatAnswer(answer) {
+        if (!answer) return 'N/A';
+        return this.formatMathContent(`\\(\\boxed{${answer.trim()}}\\)`);
+    }
+
     // 显示模型解答
     showModelSolution(modelKey, modelData) {
         // 清空现有内容
@@ -136,10 +135,10 @@ class Visualizer {
         answerEl.innerHTML = answer;
 
         // 显示答案状态
-        if (modelData.correct === true) {
+        if (modelData.answer && modelData.answer.trim() === problemData.answer.trim()) {
             statusEl.innerHTML = '✓ Correct';
             statusEl.className = 'answer-status answer-correct';
-        } else if (modelData.correct === false) {
+        } else if (modelData.answer) {
             statusEl.innerHTML = '✗ Wrong';
             statusEl.className = 'answer-status answer-incorrect';
         } else {
@@ -151,19 +150,6 @@ class Visualizer {
         this.renderMath();
     }
     
-    // 清除模型解答
-    clearModelSolution(modelKey) {
-        const promptEl = document.getElementById(`model-${modelKey}-prompt`);
-        const solutionEl = document.getElementById(`model-${modelKey}-solution`);
-        const answerEl = document.getElementById(`model-${modelKey}-answer`);
-        const statusEl = document.getElementById(`model-${modelKey}-status`);
-        
-        promptEl.innerHTML = 'No data available';
-        solutionEl.innerHTML = 'No data available';
-        answerEl.innerHTML = 'No data available';
-        statusEl.innerHTML = '';
-        statusEl.className = 'answer-status';
-    }
     
     // 格式化数学内容
     formatMathContent(content) {

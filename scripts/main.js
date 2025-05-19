@@ -77,6 +77,12 @@ async function handleSetup() {
 
 // 处理比较按钮点击
 async function handleCompare() {
+    // 检查是否已加载Finding数据
+    if (!dataLoader.findingData) {
+        alert('请先点击Setup按钮加载Finding数据');
+        return;
+    }
+
     // 获取当前问题ID
     const problemId = parseInt(document.getElementById('problem-select').value);
     
@@ -101,6 +107,7 @@ async function handleCompare() {
     } catch (error) {
         console.error('比较失败:', error);
         hideLoading();
+        alert('加载数据时发生错误，请重试');
     }
 }
 

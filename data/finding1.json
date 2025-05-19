@@ -1,5 +1,5 @@
 {
-    "description": "在有限的输出长度限制下，模型A通过更简洁的推理过程达到了与模型B相似的准确率。这表明在资源受限的情况下，简洁的推理可能比详细的推理更有效。",
+    "description": "Compared to directly terminating at token budget, early stopping consistently improves LLMs’ reasoning performance on all combinations of datasets (GSM8K and MATH500) and prompts (sbs, c2f, and aav) in our evaluation.",
     "examples": [
         {
             "dataset": "GSM8K",

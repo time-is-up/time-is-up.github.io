@@ -191,6 +191,36 @@ select {
     background-color: #f8f9fa;
     border-radius: 8px;
     border-left: 4px solid #9b59b6;
+    font-size: 16px;  /* 增加字体大小 */
+}
+
+.problem-content, .solution-content, .answer-content {
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    margin-bottom: 10px;
+    font-size: 16px;  /* 增加字体大小 */
+}
+
+.prompt-content {
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    margin-bottom: 10px;
+    font-size: 16px;  /* 增加字体大小 */
+}
+
+.description-content {
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    min-height: 80px;
+    font-size: 16px;  /* 增加字体大小 */
 }
 
 .original-problem, .standard-solution, .standard-answer {
@@ -363,7 +393,7 @@ select {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-family: inherit;
-    font-size: 14px;
+    font-size: 16px;   /* 从14px调整到16px */
     line-height: 1.5;
     overflow-y: auto;
 }
@@ -392,15 +422,27 @@ select {
 }
 
 .dataset-label {
-    font-weight: 600;  /* 加粗字体 */
-    color: #34495e;    /* 更深的颜色 */
-    font-size: 14px;   /* 调整字体大小 */
+    font-weight: 600;
+    color: #34495e;
+    font-size: 16px;   /* 从14px调整到16px */
 }
 
 .dataset-value {
     color: #2c3e50;
-    font-weight: 500;  /* 稍微加粗 */
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 16px;   /* 从14px调整到16px */
+}
+
+.info-label {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 16px;   /* 从14px调整到16px */
+}
+
+.info-value {
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 16px;   /* 从14px调整到16px */
 }
 
 /* 模型信息框样式 */
@@ -408,10 +450,10 @@ select {
     display: flex;
     gap: 20px;
     padding: 10px 15px;
-    background-color: rgba(255, 255, 255, 0.9);  /* 增加不透明度 */
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 4px;
     margin-bottom: 15px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);  /* 添加底部边框 */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .model-info-item {
@@ -421,13 +463,13 @@ select {
 }
 
 .info-label {
-    font-weight: 600;  /* 加粗字体 */
-    color: #34495e;    /* 更深的颜色 */
-    font-size: 14px;   /* 调整字体大小 */
+    font-weight: 600;
+    color: #34495e;
+    font-size: 16px;  /* 调整标签字体大小 */
 }
 
 .info-value {
     color: #2c3e50;
-    font-weight: 500;  /* 稍微加粗 */
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 16px;  /* 调整值的字体大小 */
 }
