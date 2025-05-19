@@ -1,50 +1,74 @@
 {
     "description": "Compared to directly terminating at token budget, early stopping consistently improves LLMs’ reasoning performance on all combinations of datasets (GSM8K and MATH500) and prompts (sbs, c2f, and aav) in our evaluation.",
-    "examples": [
+    "examples1": [
         {
             "dataset": "GSM8K",
-            "problem_id": "1",
-            "question": "一个商店在周一卖出了120个苹果，周二比周一多卖出15个，周三比周二少卖出8个。请问这三天一共卖出了多少个苹果？",
-            "solution": "让我们一步步计算：\n1. 周一卖出120个苹果\n2. 周二卖出：120 + 15 = 135个苹果\n3. 周三卖出：135 - 8 = 127个苹果\n4. 三天总共：120 + 135 + 127 = 382个苹果",
-            "answer": "382个苹果",
+            "problem_id": "GSM8K-19",
+            "question": "Claire makes a 3 egg omelet every morning for breakfast. How many dozens of eggs will she eat in 4 weeks?",
+            "answer": "She eats 3 eggs every day and there are 7 days in a week so she eats 3*7 = <<3*7=21>>21 eggs a week\nAfter 4 weeks she will have eaten 4*21 = <<4*21=84>>84 eggs\nThere are 12 eggs in 1 dozen and she'll eat 84 eggs so that's 84\/12 = <<84\/12=7>>7 dozen eggs\n#### 7",
             "model_a": {
-                "model_name": "GPT-4",
-                "prompt_type": "zero-shot",
-                "token_budget": 150,
-                "prompt": "请计算三天总共卖出的苹果数量。注意保持答案简洁明了。",
-                "solution": "周一120个\n周二135个\n周三127个\n总共382个",
-                "answer": "382个苹果"
-            },
-            "model_b": {
-                "model_name": "Claude-2",
+                "model_name": "NovaSky-AI/Sky-T1-32B-Preview",
                 "prompt_type": "sbs",
-                "token_budget": 500,
-                "prompt": "请详细解释计算过程，并给出最终答案。",
-                "solution": "我们来逐步计算：\n1. 首先，周一卖出120个苹果\n2. 周二比周一多卖15个，所以周二卖出：120 + 15 = 135个苹果\n3. 周三比周二少卖8个，所以周三卖出：135 - 8 = 127个苹果\n4. 现在我们把三天的数量加起来：120 + 135 + 127 = 382个苹果",
-                "answer": "382个苹果"
-            }
-        },
-        {
-            "dataset": "MATH500",
-            "problem_id": "2",
-            "question": "test2",
-            "solution": "test2",
-            "answer": "test2",
-            "model_a": {
-                "model_name": "GPT-o1",
-                "prompt_type": "c2f",
                 "token_budget": 150,
-                "prompt": "test2",
-                "solution": "test2",
-                "answer": "test2"
+                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nClaire makes a 3 egg omelet every morning for breakfast.  How many dozens of eggs will she eat in 4 weeks?<|im_end|>\n<|im_start|>assistant\n",
+                "solution": "To determine how many dozens of eggs Claire will eat in 4 weeks, we need to follow these steps:\n\n1. **Calculate the total number of eggs used per day:**\n   Claire makes a 3 egg omelet every morning.\n\n   \\[\n   \\text{Eggs per day} = 3\n   \\]\n\n2. **Calculate the total number of eggs used per week:**\n   There are 7 days in a week.\n\n   \\[\n   \\text{Eggs per week} = 3 \\text{ eggs/day} \\times 7 \\text{ days/week} = 21 \\text{ eggs/week}\n   \\]\n\n3. **Calculate the total number of eggs used in\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{7}.",
+                "answer": "She eats 3 eggs every day and there are 7 days in a week so she eats 3*7 = <<3*7=21>>21 eggs a week\nAfter 4 weeks she will have eaten 4*21 = <<4*21=84>>84 eggs\nThere are 12 eggs in 1 dozen and she'll eat 84 eggs so that's 84/12 = <<84/12=7>>7 dozen eggs\n#### 7"
             },
             "model_b": {
-                "model_name": "Claude-3",
+                "model_name": "NovaSky-AI/Sky-T1-32B-Preview",
+                "prompt_type": "sbs-hard",
+                "token_budget": 150,
+                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nClaire makes a 3 egg omelet every morning for breakfast.  How many dozens of eggs will she eat in 4 weeks?<|im_end|>\n<|im_start|>assistant\n",
+                "solution": "To determine how many dozens of eggs Claire will eat in 4 weeks, we need to follow these steps:\n\n1. **Calculate the total number of eggs used per day:**\n   Claire makes a 3 egg omelet every morning.\n\n   \\[\n   \\text{Eggs per day} = 3\n   \\]\n\n2. **Calculate the total number of eggs used per week:**\n   There are 7 days in a week.\n\n   \\[\n   \\text{Eggs per week} = 3 \\text{ eggs/day} \\times 7 \\text{ days/week} = 21 \\text{ eggs/week}\n   \\]\n\n3. **Calculate the total number of eggs used",
+                "answer": "She eats 3 eggs every day and there are 7 days in a week so she eats 3*7 = <<3*7=21>>21 eggs a week\nAfter 4 weeks she will have eaten 4*21 = <<4*21=84>>84 eggs\nThere are 12 eggs in 1 dozen and she'll eat 84 eggs so that's 84/12 = <<84/12=7>>7 dozen eggs\n#### 7"
+            }
+        }
+    ],
+    "example2":[
+        {
+            "dataset": "GSM8K",
+            "problem_id": "GSM8K-25",
+            "question": "Kyle bought last year's best-selling book for $19.50. This is with a 25% discount from the original price. What was the original price of the book?",
+            "answer": "Let X be the original price of the book. The discounted price is X - X*25% = $19.50.\nCombining like terms, we get .75X = $19.50\nDividing both sides by .75, we get X = $26.\n#### 26",
+            "model_a": {
+                "model_name": "mistralai/Mistral-Small-Instruct-2409",
+                "prompt_type": "sbs",
+                "token_budget": 100,
+                "prompt": "<s>[INST] Please reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nKyle bought last year's best-selling book for $19.50. This is with a 25% discount from the original price. What was the original price of the book?[/INST]",
+                "solution": "To find the original price of the book, we need to determine what price would result in a $19.50 sale price after a 25% discount.\n\nLet's denote the original price as \\( P \\).\n\nA 25% discount means that Kyle paid 75% of the original price (since 100% - 25% = 75%).\n\nSo, we can write the equation as:\n\\[\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{26}",
+                "answer": "Let X be the original price of the book. The discounted price is X - X*25% = $19.50.\nCombining like terms, we get .75X = $19.50\nDividing both sides by .75, we get X = $26.\n#### 26"
+            },
+            "model_b": {
+                "model_name": "mistralai/Mistral-Small-Instruct-2409",
+                "prompt_type": "sbs-hard",
+                "token_budget": 100,
+                "prompt": "<s>[INST] Please reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nKyle bought last year's best-selling book for $19.50. This is with a 25% discount from the original price. What was the original price of the book?[/INST]",
+                "solution": "To find the original price of the book, we need to work backwards from the discounted price.\n\n1. Let's denote the original price as \\( P \\).\n2. Kyle received a 25% discount, which means he paid 75% of the original price.\n3. The equation representing the discounted price is: \\( 0.75P = 19.50 \\).\n4. To find the original price \\( P \\",
+                "answer": "Let X be the original price of the book. The discounted price is X - X*25% = $19.50.\nCombining like terms, we get .75X = $19.50\nDividing both sides by .75, we get X = $26.\n#### 26"
+            }
+        }
+    ],
+    "example3":[
+        {
+            "dataset": "GSM8K",
+            "problem_id": "GSM8K-34",
+            "question": "Gretchen has 110 coins. There are 30 more gold coins than silver coins. How many gold coins does Gretchen have?",
+            "answer": "Let X be the original price of the book. The discounted price is X - X*25% = $19.50.\nCombining like terms, we get .75X = $19.50\nDividing both sides by .75, we get X = $26.\n#### 26",
+            "model_a": {
+                "model_name": "mistralai/Mistral-Small-Instruct-2409",
                 "prompt_type": "aav",
-                "token_budget": 500,
-                "prompt": "test2",
-                "solution": "test2",
-                "answer": "test2"
+                "token_budget": 150,
+                "prompt": "<bos><start_of_turn>user\nUse the following pattern to solve the problem:\n**Quick Answer**\nProvide an initial answer based on intuition or quick calculation.\n\n**Verification**\nProvide a revised answer through reasoning step by step. Correct previous mistakes, if any.\n\nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nGretchen has 110 coins. There are 30 more gold coins than silver coins. How many gold coins does Gretchen have?<end_of_turn>\n<start_of_turn>model\n",
+                "solution": "**Quick Answer:** 70\n\n**Verification:**\n\nLet 's' represent the number of silver coins.\n\n* Gold coins = Silver coins + 30 \n* Total coins = Silver coins + Gold coins\n* 110 = s + (s + 30)\n* 110 = 2s + 30\n* 80 = 2s\n* s = 40\n\nGold coins = s + 30 = 40 + 30 = 70\n\nTherefore, the final answer is: $\\boxed{70}$.",
+                "answer": "Let x be the number of silver coins Gretchen has\nGretchen has x+30 gold coins.\nx+x+30=110\n2*x=80\nx=<<40=40>>40\nGretchen has 40+30=<<40+30=70>>70 gold coins\n#### 70"
+            },
+            "model_b": {
+                "model_name": "mistralai/Mistral-Small-Instruct-2409",
+                "prompt_type": "aav-hard",
+                "token_budget": 150,
+                "prompt": "<bos><start_of_turn>user\nUse the following pattern to solve the problem:\n**Quick Answer**\nProvide an initial answer based on intuition or quick calculation.\n\n**Verification**\nProvide a revised answer through reasoning step by step. Correct previous mistakes, if any.\n\nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nGretchen has 110 coins. There are 30 more gold coins than silver coins. How many gold coins does Gretchen have?<end_of_turn>\n<start_of_turn>model\n",
+                "solution": "**Quick Answer**\n\nAround 70 gold coins.\n\n**Verification**\n\nLet's use variables:\n\n*  Let 's' represent the number of silver coins.\n*  Let 'g' represent the number of gold coins.\n\nWe know:\n\n*  g + s = 110 (total coins)\n*  g = s + 30 (30 more gold coins than silver coins)\n\nNow we can substitute the second equation into the first equation:\n\n(s + 30) + s = 110\n\nCombine like terms:\n\n2s + 30 = 110\n\nSubtract 30 from both sides:\n\n2s = 8",
+                "answer": "Let X be the original price of the book. The discounted price is X - X*25% = $19.50.\nCombining like terms, we get .75X = $19.50\nDividing both sides by .75, we get X = $26.\n#### 26"
             }
         }
     ]
