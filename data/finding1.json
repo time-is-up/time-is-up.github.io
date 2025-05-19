@@ -17,7 +17,7 @@
             },
             "model_b": {
                 "model_name": "NovaSky-AI/Sky-T1-32B-Preview",
-                "prompt_type": "step-by-step-hard",
+                "prompt_type": "step-by-step directly terminating",
                 "token_budget": 150,
                 "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nClaire makes a 3 egg omelet every morning for breakfast.  How many dozens of eggs will she eat in 4 weeks?<|im_end|>\n<|im_start|>assistant\n",
                 "solution": "To determine how many dozens of eggs Claire will eat in 4 weeks, we need to follow these steps:\n\n1. **Calculate the total number of eggs used per day:**\n   Claire makes a 3 egg omelet every morning.\n\n   \\[\n   \\text{Eggs per day} = 3\n   \\]\n\n2. **Calculate the total number of eggs used per week:**\n   There are 7 days in a week.\n\n   \\[\n   \\text{Eggs per week} = 3 \\text{ eggs/day} \\times 7 \\text{ days/week} = 21 \\text{ eggs/week}\n   \\]\n\n3. **Calculate the total number of eggs used",
@@ -40,7 +40,7 @@
             },
             "model_b": {
                 "model_name": "mistralai/Mistral-Small-Instruct-2409",
-                "prompt_type": "step-by-step-hard",
+                "prompt_type": "step-by-step directly terminating",
                 "token_budget": 100,
                 "prompt": "<s>[INST] Please reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nKyle bought last year's best-selling book for $19.50. This is with a 25% discount from the original price. What was the original price of the book?[/INST]",
                 "solution": "To find the original price of the book, we need to work backwards from the discounted price.\n\n1. Let's denote the original price as \\( P \\).\n2. Kyle received a 25% discount, which means he paid 75% of the original price.\n3. The equation representing the discounted price is: \\( 0.75P = 19.50 \\).\n4. To find the original price \\( P \\",
@@ -63,7 +63,7 @@
             },
             "model_b": {
                 "model_name": "mistralai/Mistral-Small-Instruct-2409",
-                "prompt_type": "answer-and-verify-hard",
+                "prompt_type": "answer-and-verify directly terminating",
                 "token_budget": 150,
                 "prompt": "<bos><start_of_turn>user\nUse the following pattern to solve the problem:\n**Quick Answer**\nProvide an initial answer based on intuition or quick calculation.\n\n**Verification**\nProvide a revised answer through reasoning step by step. Correct previous mistakes, if any.\n\nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nGretchen has 110 coins. There are 30 more gold coins than silver coins. How many gold coins does Gretchen have?<end_of_turn>\n<start_of_turn>model\n",
                 "solution": "**Quick Answer**\n\nAround 70 gold coins.\n\n**Verification**\n\nLet's use variables:\n\n*  Let 's' represent the number of silver coins.\n*  Let 'g' represent the number of gold coins.\n\nWe know:\n\n*  g + s = 110 (total coins)\n*  g = s + 30 (30 more gold coins than silver coins)\n\nNow we can substitute the second equation into the first equation:\n\n(s + 30) + s = 110\n\nCombine like terms:\n\n2s + 30 = 110\n\nSubtract 30 from both sides:\n\n2s = 8",
