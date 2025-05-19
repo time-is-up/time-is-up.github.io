@@ -5,6 +5,7 @@
             "dataset": "GSM8K",
             "problem_id": "GSM8K-19",
             "question": "Claire makes a 3 egg omelet every morning for breakfast. How many dozens of eggs will she eat in 4 weeks?",
+            "solution": "She eats 3 eggs every day and there are 7 days in a week so she eats 3*7 = <<3*7=21>>21 eggs a week\nAfter 4 weeks she will have eaten 4*21 = <<4*21=84>>84 eggs\nThere are 12 eggs in 1 dozen and she'll eat 84 eggs so that's 84\/12 = <<84\/12=7>>7 dozen eggs",
             "answer": "7",
             "model_a": {
                 "model_name": "NovaSky-AI/Sky-T1-32B-Preview",
@@ -27,6 +28,7 @@
             "dataset": "GSM8K",
             "problem_id": "GSM8K-25",
             "question": "Kyle bought last year's best-selling book for $19.50. This is with a 25% discount from the original price. What was the original price of the book?",
+            "solution": "Let X be the original price of the book. The discounted price is X - X*25% = $19.50.\nCombining like terms, we get .75X = $19.50\nDividing both sides by .75, we get X = $26.",
             "answer": "26",
             "model_a": {
                 "model_name": "mistralai/Mistral-Small-Instruct-2409",
@@ -49,6 +51,7 @@
             "dataset": "GSM8K",
             "problem_id": "GSM8K-34",
             "question": "Gretchen has 110 coins. There are 30 more gold coins than silver coins. How many gold coins does Gretchen have?",
+            "solution": "Let x be the number of silver coins Gretchen has\nGretchen has x+30 gold coins.\nx+x+30=110\n2*x=80\nx=<<40=40>>40\nGretchen has 40+30=<<40+30=70>>70 gold coins",
             "answer": "70",
             "model_a": {
                 "model_name": "mistralai/Mistral-Small-Instruct-2409",
