@@ -1,6 +1,6 @@
 {
     "description": "While there is no one-fits-all optimal prompt, coarse-to-fine (c2f) and answer-and-verify (aav) outperform step-by-step (sbs) in most scenarios under output length constraint.",
-    "examples1": [
+    "example1": [
         {
             "dataset": "GSM8K",
             "problem_id": "GSM8K-53",
