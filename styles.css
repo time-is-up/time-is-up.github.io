@@ -445,31 +445,55 @@ select {
     font-size: 16px;   /* 从14px调整到16px */
 }
 
-/* 模型信息框样式 */
-.model-info-box {
-    display: flex;
-    gap: 20px;
-    padding: 10px 15px;
-    background-color: rgba(255, 255, 255, 0.9);
+/* 模型信息内容样式 */
+.info-content {
+    padding: 10px;
+    background-color: white;
     border-radius: 4px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* 添加input-content类替换prompt-content */
+.input-content {
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* 删除或注释掉原来的prompt-content类 */
+/* .prompt-content {
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    margin-bottom: 10px;
+} */
+
+/* 删除旧的模型信息框样式 */
+.model-info-box {
+    display: none;
 }
 
 .model-info-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: none; /* 隐藏旧的信息项 */
 }
 
 .info-label {
     font-weight: 600;
     color: #34495e;
-    font-size: 16px;  /* 调整标签字体大小 */
+    font-size: 16px;
 }
 
 .info-value {
     color: #2c3e50;
     font-weight: 500;
-    font-size: 16px;  /* 调整值的字体大小 */
+    font-size: 16px;
 }

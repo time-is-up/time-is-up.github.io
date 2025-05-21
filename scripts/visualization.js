@@ -74,11 +74,13 @@ class Visualizer {
         if (!modelData) return;
         
         // 更新模型基本信息
+        document.getElementById(`model-${modelKey}-name`).textContent = modelData.model_name || 'N/A';
         document.getElementById(`model-${modelKey}-prompt-type`).textContent = modelData.prompt_type || 'N/A';
+        document.getElementById(`model-${modelKey}-method`).textContent = modelData.method || 'N/A';
         document.getElementById(`model-${modelKey}-token-budget`).textContent = modelData.token_budget || 'N/A';
         
-        // 更新模型输出内容
-        document.getElementById(`model-${modelKey}-prompt`).innerHTML = this.formatMathContent(modelData.prompt) || 'Model prompt not available';
+        // 更新模型输出内容 - 将prompt改为input
+        document.getElementById(`model-${modelKey}-prompt`).innerHTML = this.formatMathContent(modelData.prompt) || 'Model input not available';
         document.getElementById(`model-${modelKey}-solution`).innerHTML = this.formatMathContent(modelData.solution) || 'Model solution not available';
         document.getElementById(`model-${modelKey}-answer`).innerHTML = this.formatAnswer(modelData.answer);
         
@@ -112,15 +114,19 @@ class Visualizer {
         const solutionEl = document.getElementById(`model-${modelKey}-solution`);
         const answerEl = document.getElementById(`model-${modelKey}-answer`);
         const statusEl = document.getElementById(`model-${modelKey}-status`);
+        const nameEl = document.getElementById(`model-${modelKey}-name`);
         const promptTypeEl = document.getElementById(`model-${modelKey}-prompt-type`);
+        const methodEl = document.getElementById(`model-${modelKey}-method`);
         const tokenBudgetEl = document.getElementById(`model-${modelKey}-token-budget`);
         
         // 显示模型信息
+        nameEl.textContent = modelData.model_name || 'N/A';
         promptTypeEl.textContent = modelData.prompt_type || 'N/A';
+        methodEl.textContent = modelData.method || 'N/A';
         tokenBudgetEl.textContent = modelData.token_budget || 'N/A';
         
-        // 显示模型提示
-        promptEl.innerHTML = this.formatMathContent(modelData.prompt) || 'Model prompt not available';
+        // 显示模型提示 - 修改提示文本
+        promptEl.innerHTML = this.formatMathContent(modelData.prompt) || 'Model input not available';
     
         // 显示模型解答
         solutionEl.innerHTML = this.formatMathContent(modelData.solution) || 'Model solution not available';
