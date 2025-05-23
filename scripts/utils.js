@@ -13,7 +13,7 @@ function safeJsonParse(jsonString, defaultValue = null) {
     try {
         return JSON.parse(jsonString);
     } catch (error) {
-        console.error('JSON解析错误:', error);
+        console.error('JSON parsing error:', error);
         return defaultValue;
     }
 }
@@ -60,7 +60,7 @@ function checkBrowserCompatibility() {
     const incompatibleFeatures = Object.keys(features).filter(key => !features[key]);
     
     if (incompatibleFeatures.length > 0) {
-        alert(`您的浏览器不支持以下功能：${incompatibleFeatures.join(', ')}。请使用更现代的浏览器。`);
+        alert(`Your browser does not support the following features: ${incompatibleFeatures.join(', ')}. Please use a modern browser.`);
         return false;
     }
     
@@ -92,7 +92,7 @@ function saveUserPreferences(preferences) {
     try {
         localStorage.setItem('math_comparison_preferences', JSON.stringify(preferences));
     } catch (error) {
-        console.error('保存用户偏好失败:', error);
+        console.error('Failed to save user preferences:', error);
     }
 }
 
@@ -102,7 +102,7 @@ function loadUserPreferences() {
         const prefString = localStorage.getItem('math_comparison_preferences');
         return prefString ? JSON.parse(prefString) : null;
     } catch (error) {
-        console.error('读取用户偏好失败:', error);
+        console.error('Failed to load user preferences:', error);
         return null;
     }
 }

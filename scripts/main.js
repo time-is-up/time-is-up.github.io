@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         initializeFindingSelect();
         setupEventListeners();
     } catch (error) {
-        console.error('初始化失败:', error);
+        console.error('Initialization failed:', error);
         hideLoading();
     }
 });
@@ -70,7 +70,7 @@ async function handleSetup() {
         
         hideLoading();
     } catch (error) {
-        console.error('设置失败:', error);
+        console.error('Setup failed:', error);
         hideLoading();
     }
 }
@@ -79,7 +79,7 @@ async function handleSetup() {
 async function handleCompare() {
     // 检查是否已加载Finding数据
     if (!dataLoader.findingData) {
-        alert('请先点击Setup按钮加载Finding数据');
+        alert('Please click Setup button to load data first');
         return;
     }
 
@@ -88,7 +88,7 @@ async function handleCompare() {
     
     // 验证问题ID
     if (isNaN(problemId) || problemId < 1 || problemId > dataLoader.getProblemCount()) {
-        alert(`请输入有效的问题ID (1-${dataLoader.getProblemCount()})`);
+        alert(`Please enter a valid problem ID (1-${dataLoader.getProblemCount()})`);
         return;
     }
     
@@ -105,9 +105,9 @@ async function handleCompare() {
         // 完成后隐藏加载状态
         hideLoading();
     } catch (error) {
-        console.error('比较失败:', error);
+        console.error('Comparison failed:', error);
         hideLoading();
-        alert('加载数据时发生错误，请重试');
+        alert('Error loading data, please try again');
     }
 }
 
