@@ -1,5 +1,5 @@
 {
-    "description": "Under certain output constraints, the reasoning performance of LLMs might not scale monotonically with the model size. In other words, larger is not always better.",
+    "description": "Under strict output constraints, the reasoning performance of LLMs might not scale monotonically with the model size. In other words, larger is not always better.",
     "examples": [
         {
             "dataset": "GSM8K",

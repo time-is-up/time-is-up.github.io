@@ -1,5 +1,5 @@
 {
-    "description": "Models specialized tuned for reasoning tasks don't always outperform vanilla instruction tuned models, when there are certain output length constraints.",
+    "description": "Under strict output length constraints, reasoning models don't always outperform instruction tuned or math models.",
     "examples": [
         {
             "dataset": "GSM8K",
