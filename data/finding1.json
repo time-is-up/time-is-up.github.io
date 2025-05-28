@@ -8,7 +8,7 @@
             "solution": "It takes 2/2=<<2/2=1>>1 bolt of white fiber\nSo the total amount of fabric is 2+1=<<2+1=3>>3 bolts of fabric",
             "answer": "3",
             "model_a": {
-                "model_name": "QwQ-32B-Preview",
+                "model_name": "Qwen/QwQ-32B-Preview",
                 "prompt_type": "step-by-step (sbs)",
                 "method": "early stopping",
                 "token_budget": 200,
@@ -17,7 +17,7 @@
                 "answer": "3"
             },
             "model_b": {
-                "model_name": "QwQ-32B-Preview",
+                "model_name": "Qwen/QwQ-32B-Preview",
                 "prompt_type": "step-by-step (sbs)",
                 "method": "directly terminating",
                 "token_budget": 200,
@@ -149,81 +149,6 @@
                 "prompt": "<bos><start_of_turn>user\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nConvert the point $(0,3)$ in rectangular coordinates to polar coordinates.  Enter your answer in the form $(r,\\theta),$ where $r > 0$ and $0 \\le \\theta < 2 \\pi.$<end_of_turn>\n<start_of_turn>model\n",
                 "solution": "To find the unicycle's speed in inches per second, we need to determine the distance traveled in one revolution and then calculate the speed based on the number of revolutions per second.\n\n1. **Calculate the circumference of the wheel:**\n\n   The circumference \\( C \\) of a circle is given by the formula:\n   \\[\n   C = 2\\pi r\n   \\]\n   where \\( r \\) is the radius of the circle. For the unicycle's wheel, the radius \\( r \\) is 9 inches. Thus, the circumference is:\n   \\[\n   C = 2\\pi \\times 9 = 18\\pi \\text{ inches}\n   \\]\n\n2. **Determine the number of revolutions per second:**\n\n   We know the wheel makes 2 revolutions every 3 seconds. To find the number of revolutions per second, divide the number of revolutions by the time in seconds:\n   \\[\n   \\text{Revolutions per second} = \\frac{2 \\text{ revolutions}}{3 \\text{ seconds}} = \\frac{2}{3} \\text{ revolutions per second}\n   \\]\n\n3. **Calculate the speed in inches per second:**\n\n   The speed of the unicycle is the distance traveled per second. Since each revolution covers a distance equal to the circumference of the",
                 "answer":"3"
-            }
-        },
-        {
-            "dataset": "GSM8K",
-            "problem_id": "GSM8K-19",
-            "question": "Claire makes a 3 egg omelet every morning for breakfast. How many dozens of eggs will she eat in 4 weeks?",
-            "solution": "She eats 3 eggs every day and there are 7 days in a week so she eats 3*7 = <<3*7=21>>21 eggs a week\nAfter 4 weeks she will have eaten 4*21 = <<4*21=84>>84 eggs\nThere are 12 eggs in 1 dozen and she'll eat 84 eggs so that's 84\/12 = <<84\/12=7>>7 dozen eggs",
-            "answer": "7",
-            "model_a": {
-                "model_name": "NovaSky-AI/Sky-T1-32B-Preview",
-                "prompt_type": "step-by-step (sbs)",
-                "method": "early stopping",
-                "token_budget": 175,
-                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nClaire makes a 3 egg omelet every morning for breakfast.  How many dozens of eggs will she eat in 4 weeks?<|im_end|>\n<|im_start|>assistant\n",
-                "solution": "To determine how many dozens of eggs Claire will eat in 4 weeks, we need to follow these steps:\n\n1. **Calculate the total number of eggs used per day:**\n   Claire makes a 3 egg omelet every morning.\n\n   \\[\n   \\text{Eggs per day} = 3\n   \\]\n\n2. **Calculate the total number of eggs used per week:**\n   There are 7 days in a week.\n\n   \\[\n   \\text{Eggs per week} = 3 \\text{ eggs/day} \\times 7 \\text{ days/week} = 21 \\text{ eggs/week}\n   \\]\n\n3. **Calculate the total number of eggs used in\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{7}.",
-                "answer": "7"
-            },
-            "model_b": {
-                "model_name": "NovaSky-AI/Sky-T1-32B-Preview",
-                "prompt_type": "step-by-step (sbs)",
-                "method": "directly terminating",
-                "token_budget": 175,
-                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nClaire makes a 3 egg omelet every morning for breakfast.  How many dozens of eggs will she eat in 4 weeks?<|im_end|>\n<|im_start|>assistant\n",
-                "solution": "To determine how many dozens of eggs Claire will eat in 4 weeks, we need to follow these steps:\n\n1. **Calculate the total number of eggs used per day:**\n   Claire makes a 3 egg omelet every morning.\n\n   \\[\n   \\text{Eggs per day} = 3\n   \\]\n\n2. **Calculate the total number of eggs used per week:**\n   There are 7 days in a week.\n\n   \\[\n   \\text{Eggs per week} = 3 \\text{ eggs/day} \\times 7 \\text{ days/week} = 21 \\text{ eggs/week}\n   \\]\n\n3. **Calculate the total number of eggs used in 4 weeks:**\n   There are 4 weeks.\n\n   \\[\n   \\text{Eggs in",
-                "answer": "4"
-            }
-        },
-        {
-            "dataset": "GSM8K",
-            "problem_id": "GSM8K-25",
-            "question": "Kyle bought last year's best-selling book for $19.50. This is with a 25% discount from the original price. What was the original price of the book?",
-            "solution": "Let X be the original price of the book. The discounted price is X - X*25% = $19.50.\nCombining like terms, we get .75X = $19.50\nDividing both sides by .75, we get X = $26.",
-            "answer": "26",
-            "model_a": {
-                "model_name": "mistralai/Mistral-Small-Instruct-2409",
-                "prompt_type": "step-by-step (sbs)",
-                "method": "early stopping",
-                "token_budget": 100,
-                "prompt": "<s>[INST] Please reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nKyle bought last year's best-selling book for $19.50. This is with a 25% discount from the original price. What was the original price of the book?[/INST]",
-                "solution": "To find the original price of the book, we need to determine what price would result in a $19.50 sale price after a 25% discount.\n\nLet's denote the original price as \\( P \\).\n\nA 25% discount means that Kyle paid 75% of the original price (since 100% - 25% = 75%).\n\nSo, we can write the equation as:\n\\[\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{26}",
-                "answer": "26"
-            },
-            "model_b": {
-                "model_name": "mistralai/Mistral-Small-Instruct-2409",
-                "prompt_type": "step-by-step (sbs)",
-                "method": "directly terminating",
-                "token_budget": 100,
-                "prompt": "<s>[INST] Please reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nKyle bought last year's best-selling book for $19.50. This is with a 25% discount from the original price. What was the original price of the book?[/INST]",
-                "solution": "To find the original price of the book, we need to work backwards from the discounted price.\n\n1. Let's denote the original price as \\( P \\).\n2. Kyle received a 25% discount, which means he paid 75% of the original price.\n3. The equation representing the discounted price is: \\( 0.75P = 19.50 \\).\n4. To find the original price \\( P \\), we divide both sides of the equation by 0.75:\n   \\[\n   P = \\frac{",
-                "answer": "0.75"
-            }
-        },
-        {
-            "dataset": "GSM8K",
-            "problem_id": "GSM8K-34",
-            "question": "Gretchen has 110 coins. There are 30 more gold coins than silver coins. How many gold coins does Gretchen have?",
-            "solution": "Let x be the number of silver coins Gretchen has\nGretchen has x+30 gold coins.\nx+x+30=110\n2*x=80\nx=<<40=40>>40\nGretchen has 40+30=<<40+30=70>>70 gold coins",
-            "answer": "70",
-            "model_a": {
-                "model_name": "mistralai/Mistral-Small-Instruct-2409",
-                "prompt_type": "answer-and-verify (aav)",
-                "method": "early stopping",
-                "token_budget": 150,
-                "prompt": "<bos><start_of_turn>user\nUse the following pattern to solve the problem:\n**Quick Answer**\nProvide an initial answer based on intuition or quick calculation.\n\n**Verification**\nProvide a revised answer through reasoning step by step. Correct previous mistakes, if any.\n\nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nGretchen has 110 coins. There are 30 more gold coins than silver coins. How many gold coins does Gretchen have?<end_of_turn>\n<start_of_turn>model\n",
-                "solution": "**Quick Answer:** 70\n\n**Verification:**\n\nLet 's' represent the number of silver coins.\n\n* Gold coins = Silver coins + 30 \n* Total coins = Silver coins + Gold coins\n* 110 = s + (s + 30)\n* 110 = 2s + 30\n* 80 = 2s\n* s = 40\n\nGold coins = s + 30 = 40 + 30 = 70\n\nTherefore, the final answer is: $\\boxed{70}$.",
-                "answer": "70"
-            },
-            "model_b": {
-                "model_name": "mistralai/Mistral-Small-Instruct-2409",
-                "prompt_type": "answer-and-verify (aav)",
-                "method": "directly terminating",
-                "token_budget": 150,
-                "prompt": "<bos><start_of_turn>user\nUse the following pattern to solve the problem:\n**Quick Answer**\nProvide an initial answer based on intuition or quick calculation.\n\n**Verification**\nProvide a revised answer through reasoning step by step. Correct previous mistakes, if any.\n\nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nGretchen has 110 coins. There are 30 more gold coins than silver coins. How many gold coins does Gretchen have?<end_of_turn>\n<start_of_turn>model\n",
-                "solution": "**Quick Answer**\nLet's assume Gretchen has 40 gold coins and 30 silver coins.\n\n**Verification**\nIf Gretchen has 40 gold coins and 30 silver coins, the total number of coins would be 40 + 30 = 70, which is not equal to 110. We need to find the correct number of gold and silver coins such that the total is 110 and there are 30 more gold coins than silver coins.\n\nLet the number of silver coins be x. Then the number of gold coins would be x + 30.\n\nThe total number of coins is given by:\nx (silver coins) + (x + 30) (gold coins) = 110\n\nS",
-                "answer": "110"
             }
         }
     ]
