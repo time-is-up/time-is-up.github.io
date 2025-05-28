@@ -3,6 +3,106 @@
     "examples": [
         {
             "dataset": "GSM8K",
+            "problem_id": "GSM8K-2",
+            "question": "A robe takes 2 bolts of blue fiber and half that much white fiber. How many bolts in total does it take?",
+            "solution": "It takes 2/2=<<2/2=1>>1 bolt of white fiber\nSo the total amount of fabric is 2+1=<<2+1=3>>3 bolts of fabric",
+            "answer": "3",
+            "model_a": {
+                "model_name": "QwQ-32B-Preview",
+                "prompt_type": "step-by-step (sbs)",
+                "method": "early stopping",
+                "token_budget": 200,
+                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nA robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?<|im_end|>\n<|im_start|>assistant\n",
+                "solution": "So I have this problem here: \"A robe takes 2 bolts of blue fiber and half that much white fiber. How many bolts in total does it take?\" Okay, let's break this down.\n\nFirst, it says the robe takes 2 bolts of blue fiber. So, blue fiber bolts = 2.\n\nNext, it says \"half that much white fiber.\" So, white fiber bolts = half of the blue fiber bolts.\n\nSince blue fiber bolts are 2, half of that would be 1. So, white fiber bolts = 1.\n\nNow, to find the total bolts, I need to add the blue and white fiber bolts together.\n\nTotal bolts = blue fiber bolts + white fiber bolts = 2 + 1 = 3.\n\nWait, is that it? It seems straightforward, but maybe I should double-check.\n\nLet me read the problem again\n\n**Time's Up!**\nTherefore, the final answer is: \\boxed{3}",
+                "answer": "7"
+            },
+            "model_b": {
+                "model_name": "QwQ-32B-Preview",
+                "prompt_type": "step-by-step (sbs)",
+                "method": "directly terminating",
+                "token_budget": 200,
+                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nA robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?<|im_end|>\n<|im_start|>assistant\n",
+                "solution": "So I have this problem here: \"A robe takes 2 bolts of blue fiber and half that much white fiber. How many bolts in total does it take?\" Okay, let's break this down.\n\nFirst, it says the robe takes 2 bolts of blue fiber. So, blue fiber bolts = 2.\n\nNext, it says \"half that much white fiber.\" So, white fiber bolts = half of the blue fiber bolts.\n\nSince blue fiber bolts are 2, half of that would be 1. So, white fiber bolts = 1.\n\nNow, to find the total bolts, I need to add the blue and white fiber bolts together.\n\nTotal bolts = blue fiber bolts + white fiber bolts = 2 + 1 = 3.\n\nWait, is that it? It seems straightforward, but maybe I should double-check.\n\nLet me read the problem again: \"A robe takes 2 bolts of blue fiber and half that much white fiber. How many bolts in total does",
+                "answer":"2"
+            }
+        },
+        {
+            "dataset": "MATH500",
+            "problem_id": "MATH500-92",
+            "question": "Given $f(x) = \\frac{\\sqrt{x-1}}{x-2}$, what is the smallest possible integer value for $x$ such that $f(x)$ has a real number value?",
+            "solution": "In order for $f(x)$ to have a real number value, the expression inside the square root in the numerator must be non-negative and the denominator must not be 0. So we have the two conditions $x-1\\ge0 \\Rightarrow x \\ge 1$ and $x-2 \\ne 0 \\Rightarrow x \\ne 2$. We see that $x=\\boxed{1}$ is the smallest integer value that satisfies both conditions.",
+            "answer": "1",
+            "model_a": {
+                "model_name": "QwQ-32B-Preview",
+                "prompt_type": "step-by-step (sbs)",
+                "method": "early stopping",
+                "token_budget": 600,
+                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nGiven $f(x) = \\frac{\\sqrt{x-1}}{x-2}$, what is the smallest possible integer value for $x$ such that $f(x)$ has a real number value?<|im_end|>\n<|im_start|>assistant\n",
+                "solution": "So I have this function: \\(f(x) = \\frac{\\sqrt{x-1}}{x-2}\\). I need to find the smallest possible integer value for \\(x\\) that makes \\(f(x)\\) a real number. Okay, let's break this down.\n\nFirst, for \\(f(x)\\) to be a real number, both the numerator and the denominator need to satisfy certain conditions. The numerator is \\(\\sqrt{x-1}\\), which means that whatever is inside the square root has to be non-negative because the square root of a negative number is imaginary, not real. So, \\(x - 1 \\geq 0\\), which simplifies to \\(x \\geq 1\\).\n\nNext, the denominator is \\(x - 2\\), and since it's downstairs, it can't be zero because division by zero is undefined. So, \\(x - 2 \\neq 0\\), which means \\(x \\neq 2\\).\n\nPutting these two conditions together, \\(x\\) has to be at least 1, but not equal to 2. So, possible values for \\(x\\) are \\(x = 1, 3, 4, 5,\\) and so on, but skipping \\(x = 2\\).\n\nNow, the question asks for the smallest possible integer value of \\(x\\). Looking at the allowed values, the smallest integer is \\(x = 1\\), but I have to check if that actually works.\n\nLet's plug \\(x = 1\\) into the function:\n\n\\(f(1) = \\frac{\\sqrt{1 - 1}}{1 - 2} = \\frac{\\sqrt{0}}{-1} = \\frac{0}{-1} = 0\\).\n\nOkay, that's a real number. So, \\(x = 1\\) seems to work.\n\nWait a minute, but the problem says \"the smallest possible integer value for \\(x\\)\", and \\(x = 1\\) is indeed the smallest integer satisfying \\(x \\geq 1\\) and \\(x \\neq 2\\).\n\nBut let's check \\(x = 3\\) just to see:\n\n\\(f(3) = \\frac{\\sqrt{3 - 1}}{3 - 2} = \\frac{\\sqrt{2}}{1} = \\sqrt{2}\\), which is also real.\n\nAnd \\(x = 4\\):\n\n\\(f(4) = \\frac{\\sqrt{4 - 1}}{4 - 2} = \\frac{\\sqrt{3}}{2}\\), which is real as well.\n\nBut since \\(x = 1\\) is smaller than \\(x = 3\\) or \\(x = 4\\), and it satisfies the conditions\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{1}",
+                "answer": "1"
+            },
+            "model_b": {
+                "model_name": "QwQ-32B-Preview",
+                "prompt_type": "step-by-step (sbs)",
+                "method": "directly terminating",
+                "token_budget": 600,
+                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nGiven $f(x) = \\frac{\\sqrt{x-1}}{x-2}$, what is the smallest possible integer value for $x$ such that $f(x)$ has a real number value?<|im_end|>\n<|im_start|>assistant\n",
+                "solution": "So I have this function: \\(f(x) = \\frac{\\sqrt{x-1}}{x-2}\\). I need to find the smallest possible integer value for \\(x\\) that makes \\(f(x)\\) a real number. Okay, let's break this down.\n\nFirst, for \\(f(x)\\) to be a real number, both the numerator and the denominator need to satisfy certain conditions. The numerator is \\(\\sqrt{x-1}\\), which means that whatever is inside the square root has to be non-negative because the square root of a negative number is imaginary, not real. So, \\(x - 1 \\geq 0\\), which simplifies to \\(x \\geq 1\\).\n\nNext, the denominator is \\(x - 2\\), and since it's downstairs, it can't be zero because division by zero is undefined. So, \\(x - 2 \\neq 0\\), which means \\(x \\neq 2\\).\n\nPutting these two conditions together, \\(x\\) has to be at least 1, but not equal to 2. So, possible values for \\(x\\) are \\(x = 1, 3, 4, 5,\\) and so on, but skipping \\(x = 2\\).\n\nNow, the problem asks for the smallest possible integer value of \\(x\\). Looking at the allowed values, the smallest integer is \\(x = 1\\), but I have to check if that actually works.\n\nLet's plug \\(x = 1\\) into the function:\n\n\\(f(1) = \\frac{\\sqrt{1 - 1}}{1 - 2} = \\frac{\\sqrt{0}}{-1} = \\frac{0}{-1} = 0\\).\n\nOkay, that's a real number. So, \\(x = 1\\) seems to work.\n\nWait a minute, but the problem says \"the smallest possible integer value for \\(x\\)\", and \\(x = 1\\) is indeed the smallest integer satisfying \\(x \\geq 1\\) and \\(x \\neq 2\\).\n\nBut let's check \\(x = 3\\) just to see:\n\n\\(f(3) = \\frac{\\sqrt{3 - 1}}{3 - 2} = \\frac{\\sqrt{2}}{1} = \\sqrt{2}\\), which is also real.\n\nAnd \\(x = 4\\):\n\n\\(f(4) = \\frac{\\sqrt{4 - 1}}{4 - 2} = \\frac{\\sqrt{3}}{2}\\), which is real too.\n\nBut since \\(x = 1\\) is smaller than these and works, it should be the answer.\n\nWait, is there any other constraint I'm missing? Let's see.\n\nThe square root requires \\(x - 1 \\geq 0\\), and the denominator",
+                "answer":"0"
+            }
+        },
+        {
+            "dataset": "GSM8K",
+            "problem_id": "GSM8k-89",
+            "question": "Marilyn's first record sold 10 times as many copies as Harald's. If they sold 88,000 copies combined, how many copies did Harald sell?",
+            "solution": "Let m be the number of copies Marilyn sold and h be the number Harald sold. We know that m + h = 80,000 and m = 10h.\nSubstituting the second equation into the first, we get 10h + h = 88,000\nCombining like terms, we get 11h = 88,000\nDividing both sides by 11, we get h = 8,000",
+            "answer": "8000",
+            "model_a": {
+                "model_name": "google/gemma-2-27b-it",
+                "prompt_type": "step-by-step (sbs)",
+                "method": "early stopping",
+                "token_budget": 100,
+                "prompt": "<bos><start_of_turn>user\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nMarilyn's first record sold 10 times as many copies as Harald's. If they sold 88,000 copies combined, how many copies did Harald sell?<end_of_turn>\n<start_of_turn>model\n",
+                "solution": "Let's break this problem down:\n\n1. **Define variables:**\n\n* Let 'x' represent the number of copies Harald sold.\n* Marilyn sold 10 times Harald's amount, so she sold 10x copies.\n\n2. **Set up an equation:**\n\n* The total copies sold is the sum of Harald's sales and\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{8000}.",
+                "answer": "8000"
+            },
+            "model_b": {
+                "model_name": "google/gemma-2-27b-it",
+                "prompt_type": "step-by-step (sbs)",
+                "method": "directly terminating",
+                "token_budget": 100,
+                "prompt": "<bos><start_of_turn>user\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nMarilyn's first record sold 10 times as many copies as Harald's. If they sold 88,000 copies combined, how many copies did Harald sell?<end_of_turn>\n<start_of_turn>model\n",
+                "solution": "Let's break this problem down:\n\n**1. Define variables:**\n\n* Let 'x' represent the number of copies Harald sold.\n* Marilyn sold 10 times Harald's amount, so she sold 10x copies.\n\n**2. Set up an equation:**\n\n* The total copies sold is the sum of Harald's sales and Marilyn's sales: x + 10x = 88,000\n\n**3. Solve the",
+                "answer":"3"
+            }
+        },
+        {
+            "dataset": "MATH500",
+            "problem_id": "MATH500-1",
+            "question": "Convert the point $(0,3)$ in rectangular coordinates to polar coordinates.  Enter your answer in the form $(r,\\theta),$ where $r > 0$ and $0 \\le \\theta < 2 \\pi.",
+            "solution": "We have that $r = \\sqrt{0^2 + 3^2} = 3.$  Also, if we draw the line connecting the origin and $(0,3),$ this line makes an angle of $\\frac{\\pi}{2}$ with the positive $x$-axis.\n\n[asy]\nunitsize(0.8 cm);\n\ndraw((-0.5,0)--(3.5,0));\ndraw((0,-0.5)--(0,3.5));\ndraw(arc((0,0),3,0,90),red,Arrow(6));\n\ndot((0,3), red);\nlabel(\"$(0,3)$\", (0,3), W);\ndot((3,0), red);\n[/asy]\n\nTherefore, the polar coordinates are $\\boxed{\\left( 3, \\frac{\\pi}{2} \\right)}.$",
+            "answer": "(3,\\frac{\\pi}{2})",
+            "model_a": {
+                "model_name": "google/gemma-2-27b-it",
+                "prompt_type": "step-by-step (sbs)",
+                "method": "early stopping",
+                "token_budget": 200,
+                "prompt": "<bos><start_of_turn>user\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nConvert the point $(0,3)$ in rectangular coordinates to polar coordinates.  Enter your answer in the form $(r,\\theta),$ where $r > 0$ and $0 \\le \\theta < 2 \\pi.$<end_of_turn>\n<start_of_turn>model\n",
+                "solution": "Here's how to convert from rectangular coordinates $(x,y)$ to polar coordinates $(r,\\theta)$:\n\n**1. Find the radius, r:**\n\n*  The radius, *r*, is the distance from the origin to the point. We can use the Pythagorean theorem: \n   *  $r = \\sqrt{x^2 + y^2}$\n\n*  In this case, $x = 0$ and $y = 3$, so:\n   *  $r = \\sqrt{0^2 + 3^2} = \\sqrt{9} = 3$\n\n**2. Find the angle, θ:**\n\n* The angle, *θ*, is the angle between the positive *x*-axis and the line segment connecting the origin to the point.\n\n* We can use the ar\n\n**Time's Up!**\nTherefore, the final answer is:$\\boxed{(3, \\frac{\\pi}{2})}$.",
+                "answer": "(3,\\frac{\\pi}{2})"
+            },
+            "model_b": {
+                "model_name": "google/gemma-2-27b-it",
+                "prompt_type": "step-by-step (sbs)",
+                "method": "directly terminating",
+                "token_budget": 200,
+                "prompt": "<bos><start_of_turn>user\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nConvert the point $(0,3)$ in rectangular coordinates to polar coordinates.  Enter your answer in the form $(r,\\theta),$ where $r > 0$ and $0 \\le \\theta < 2 \\pi.$<end_of_turn>\n<start_of_turn>model\n",
+                "solution": "Here's how to convert from rectangular coordinates $(x,y)$ to polar coordinates $(r,\\theta)$:\n\n**1. Find the radius, r:**\n\n*  The radius, *r*, is the distance from the origin to the point. We can use the Pythagorean theorem: \n   *  *r* = √(*x*² + *y*²)\n\n*  In this case, *x* = 0 and *y* = 3, so:\n   *  *r* = √(0² + 3²) = √9 = 3\n\n**2. Find the angle, θ:**\n\n* The angle, *θ*, is the angle between the positive *x*-axis and the line segment connecting the origin to the point.\n\n* Since the point is on the positive *y*-axis, the angle is π/2 radians.\n\n**Therefore, the final answer is:  \\boxed{(3, \\",
+                "answer":"(3,\\"
+            }
+        },
+        {
+            "dataset": "GSM8K",
             "problem_id": "GSM8K-19",
             "question": "Claire makes a 3 egg omelet every morning for breakfast. How many dozens of eggs will she eat in 4 weeks?",
             "solution": "She eats 3 eggs every day and there are 7 days in a week so she eats 3*7 = <<3*7=21>>21 eggs a week\nAfter 4 weeks she will have eaten 4*21 = <<4*21=84>>84 eggs\nThere are 12 eggs in 1 dozen and she'll eat 84 eggs so that's 84\/12 = <<84\/12=7>>7 dozen eggs",
