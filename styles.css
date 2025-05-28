@@ -430,19 +430,32 @@ select {
 .dataset-value {
     color: #2c3e50;
     font-weight: 500;
-    font-size: 16px;   /* 从14px调整到16px */
+    font-size: 16px;
 }
 
-.info-label {
-    font-weight: 600;
-    color: #34495e;
-    font-size: 16px;   /* 从14px调整到16px */
+/* Instruction Panel Styles */
+#instruction-panel {
+    background-color: #ffffe0; /* Light yellow background */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.info-value {
-    color: #2c3e50;
-    font-weight: 500;
-    font-size: 16px;   /* 从14px调整到16px */
+#instruction-panel h2 {
+    color: #495057; /* Darker grey for heading */
+    margin-bottom: 15px;
+}
+
+#instruction-panel ol {
+    list-style-position: inside; /* Bullets inside the text block */
+    padding-left: 0; /* Remove default padding */
+}
+
+#instruction-panel li {
+    margin-bottom: 10px; /* Space between list items */
+    line-height: 1.6;
+    color: #343a40; /* Slightly darker text for readability */
 }
 
 /* 模型信息内容样式 */
