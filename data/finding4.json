@@ -11,7 +11,7 @@
                 "model_name": "Qwen/Qwen2.5-7B-Instruct",
                 "prompt_type": "step-by-step (sbs)",
                 "method": "early stopping",
-                "token_budget": 150,
+                "token_budget": 175,
                 "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nJanet buys a brooch for her daughter.  She pays $500 for the material to make it and then another $800 for the jeweler to construct it.  After that, she pays 10% of that to get it insured.  How much did she pay?<|im_end|>\n<|im_start|>assistant\n",
                 "solution": "To determine the total amount Janet paid, we need to follow these steps:\n\n1. Calculate the total cost of the materials and construction.\n2. Calculate the cost of insuring the brooch.\n3. Add the insurance cost to the total cost of materials and construction.\n\nFirst, let's find the total cost of the materials and construction:\n\\[ 500 + 800 = 1300 \\]\n\nNext, we need to calculate 10% of the total cost to get the insurance cost:\n\\[ 10\\% \\text{ of } 1300 = 0.10 \\times 1300 = 130 \\]\n\nNow, we add the insurance cost to the\n\n**Time's Up!**\nTherefore, the final answer is:1430.",
                 "answer": "1430"
@@ -20,7 +20,7 @@
                 "model_name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
                 "prompt_type": "step-by-step (sbs)",
                 "method": "early stopping",
-                "token_budget": 150,
+                "token_budget": 175,
                 "prompt": "<｜begin▁of▁sentence｜><｜User｜>Please reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nJanet buys a brooch for her daughter.  She pays $500 for the material to make it and then another $800 for the jeweler to construct it.  After that, she pays 10% of that to get it insured.  How much did she pay?<｜Assistant｜><think>\n",
                 "solution": "Janet starts by purchasing the materials needed to make the brooch, which costs her $500.\n\nNext, she has the jeweler construct the brooch, adding another $800 to her expenses.\n\nAfter constructing the brooch, she needs to insure it. The insurance cost is 10% of the total construction cost, which is 10% of $800, amounting to $80.\n\nFinally, to find the total amount Janet paid, we add the cost of materials, the construction cost, and the insurance cost together: $500 + $800 + $80, resulting in a total of $1,380.\n</think>\n\nLet's break down\n\n**Time's Up!**\nTherefore, the final answer is:\\box{1380}.",
                 "answer": "1380"
@@ -36,7 +36,7 @@
                 "model_name": "Qwen/Qwen2.5-7B-Instruct",
                 "prompt_type": "step-by-step (sbs)",
                 "method": "early stopping",
-                "token_budget": 150,
+                "token_budget": 175,
                 "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nToula went to the bakery and bought various types of pastries. She bought 3 dozen donuts which cost $68 per dozen, 2 dozen mini cupcakes which cost $80 per dozen, and 6 dozen mini cheesecakes for $55 per dozen. How much was the total cost?<|im_end|>\n<|im_start|>assistant\n",
                 "solution": "To find the total cost of the pastries Toula bought, we need to calculate the cost for each type of pastry separately and then sum them up.\n\n1. **Cost of Donuts:**\n   - Toula bought 3 dozen donuts.\n   - The cost per dozen is $68.\n   - Therefore, the total cost for the donuts is:\n     \\[\n     3 \\text{ dozen} \\times 68 \\text{ dollars/dozen} = 204 \\text{ dollars}\n     \\]\n\n2. **Cost of Mini Cupcakes:**\n   - Toula bought 2 dozen mini cupcakes.\n   - The cost per dozen is $80.\n   - Therefore, the total cost for\n\n**Time's Up!**\nTherefore, the final answer is\\boxed{204 + 160 + 330}.",
                 "answer": "694"
@@ -45,7 +45,7 @@
                 "model_name": "Qwen/Qwen2.5-Math-7B-Instruct",
                 "prompt_type": "step-by-step (sbs)",
                 "method": "early stopping",
-                "token_budget": 150,
+                "token_budget": 175,
                 "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nToula went to the bakery and bought various types of pastries. She bought 3 dozen donuts which cost $68 per dozen, 2 dozen mini cupcakes which cost $80 per dozen, and 6 dozen mini cheesecakes for $55 per dozen. How much was the total cost?<|im_end|>\n<|im_start|>assistant\n",
                 "solution": "To determine the total cost of the pastries Toula bought, we need to calculate the cost of each type of pastry separately and then sum these costs.\n\nFirst, let's calculate the cost of the donuts:\nToula bought 3 dozen donuts, and each dozen costs $68.\n\\[\n3 \\times 68 = 204\n\\]\nSo, the cost of the donuts is $204.\n\nNext, let's calculate the cost of the mini cupcakes:\nToula bought 2 dozen mini cupcakes, and each dozen costs $80.\n\\[\n2 \\times 80 = 160\n\\]\nSo, the cost of the mini cupcakes is $160.\n\n\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{568}",
                 "answer": "568"
@@ -53,7 +53,7 @@
         },
         {
             "dataset": "MATH500",
-            "problem_id": "MATH-43",
+            "problem_id": "MATH500-43",
             "question": "The solution to $-4 < 2(x - 1) < 8$ is expressed in the form $a < x < b$. Find the value of $a + b$.",
             "solution":"Since everything in sight is even, we should begin by dividing by 2.  That gives \\[-2<x-1<4.\\] To isolate $x$, we add 1, so \\[-1<x<5.\\] Since $a=-1$ and $b=5$, we get $a+b=-1+5=\\boxed{4}$.",
             "answer": "4",
@@ -61,7 +61,7 @@
                 "model_name": "Qwen/Qwen2.5-7B-Instruct",
                 "prompt_type": "step-by-step (sbs)",
                 "method": "early stopping",
-                "token_budget": 200,
+                "token_budget": 225,
                 "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nThe solution to $-4 < 2(x - 1) < 8$ is expressed in the form $a < x < b$. Find the value of $a + b$.<|im_end|>\n<|im_start|>assistant\n",
                 "solution": "To solve the inequality \\(-4 < 2(x - 1) < 8\\), we will break it down into two separate inequalities and solve each part step by step.\n\nFirst, let's solve the left part of the inequality:\n\\[\n-4 < 2(x - 1)\n\\]\nDivide both sides by 2:\n\\[\n-2 < x - 1\n\\]\nAdd 1 to both sides:\n\\[\n-1 < x\n\\]\nThis can be rewritten as:\n\\[\nx > -1\n\\]\n\nNext, let's solve the right part of the inequality:\n\\[\n2(x - 1) < 8\n\\]\nDivide both sides by 2:\n\\[\nx - 1 < 4\n\\]\nAdd 1 to both sides:\n\\[\nx < 5\n\\]\n\nCombining the two parts, we get:\n\\[\n-1 < x < 5\n\\]\n\nThe solution to the\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{-1 + 5}.",
                 "answer": "4"
@@ -70,10 +70,60 @@
                 "model_name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
                 "prompt_type": "step-by-step (sbs)",
                 "method": "early stopping",
-                "token_budget": 200,
+                "token_budget": 225,
                 "prompt": "<｜begin▁of▁sentence｜><｜User｜>Please reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nThe solution to $-4 < 2(x - 1) < 8$ is expressed in the form $a < x < b$. Find the value of $a + b$.<｜Assistant｜><think>\n",
                 "solution": "Okay, so I have this inequality to solve: -4 is less than 2 times (x minus 1) which is less than 8. I need to find the solution in the form a < x < b and then figure out what a plus b is. Hmm, let me think about how to approach this step by step.\n\nFirst, I remember that when dealing with inequalities, especially compound inequalities like this one, the goal is to isolate the variable x in the middle. So, I have three parts here: -4, 2(x - 1), and 8. I need to manipulate the middle part to get x by itself.\n\nThe inequality is: -4 < 2(x - 1) < 8.\n\nI think the first step is to get rid of that 2 that's multiplied by (x - 1). To do that, I can divide all parts of the inequality by 2. But wait, I should make sure that\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{3}.\n</think>\n\nTo solve the inequality \\(-4 < 2(x - 1) < 8",
                 "answer": "3"
+            }
+        },
+        {
+            "dataset": "MATH500",
+            "problem_id": "MATH500-47",
+            "question": "What is the smallest positive integer $n$ such that all the roots of $z^4 + z^2 + 1 = 0$ are $n^{\\text{th}}$ roots of unity?",
+            "solution":"Multiplying the equation $z^4 + z^2 + 1 = 0$ by $z^2 - 1 = (z - 1)(z + 1)$, we get $z^6 - 1 = 0$.  Therefore, every root of $z^4 + z^2 + 1 = 0$ is a sixth root of unity.\n\nThe sixth roots of unity are $e^{0}$, $e^{2 \\pi i/6}$, $e^{4 \\pi i/6}$, $e^{6 \\pi i/6}$, $e^{8 \\pi i/6}$, and $e^{10 \\pi i/6}$.  We see that $e^{0} = 1$ and $e^{6 \\pi i/6} = e^{\\pi i} = -1$, so the roots of\n\\[z^4 + z^2 + 1 = 0\\]are the remaining sixth roots of unity, namely $e^{2 \\pi i/6}$, $e^{4 \\pi i/6}$, $e^{8 \\pi i/6}$, and $e^{10 \\pi i/6}$.  The complex number $e^{2 \\pi i/6}$ is a primitive sixth root of unity, so by definition, the smallest positive integer $n$ such that $(e^{2 \\pi i/6})^n = 1$ is 6.  Therefore, the smallest possible value of $n$ is $\\boxed{6}$",
+            "answer": "6",
+            "model_a": {
+                "model_name": "Qwen/Qwen2.5-14B-Instruct",
+                "prompt_type": "step-by-step (sbs)",
+                "method": "early stopping",
+                "token_budget": 200,
+                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nWhat is the smallest positive integer $n$ such that all the roots of $z^4 + z^2 + 1 = 0$ are $n^{\\text{th}}$ roots of unity?<|im_end|>\n<|im_start|>assistant\n",
+                "solution": "To determine the smallest positive integer \\( n \\) such that all the roots of the polynomial \\( z^4 + z^2 + 1 = 0 \\) are \\( n \\)-th roots of unity, we start by finding the roots of the polynomial.\n\nFirst, let's rewrite the polynomial in a more convenient form. Notice that:\n\\[\nz^4 + z^2 + 1 = 0\n\\]\ncan be rewritten using the identity for the sum of cubes:\n\\[\nz^4 + z^2 + 1 = \\frac{z^6 - 1}{z^2 - 1} \\quad \\text{for} \\quad z \\neq \\pm 1\n\\]\nHowever, this form is not directly useful here. Instead, we solve the polynomial directly.\n\nLet \\( w = z^2 \\\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{6}.",
+                "answer": "6"
+            },
+            "model_b": {
+                "model_name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+                "prompt_type": "step-by-step (sbs)",
+                "method": "early stopping",
+                "token_budget": 200,
+                "prompt": "<｜begin▁of▁sentence｜><｜User｜>Please reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nWhat is the smallest positive integer $n$ such that all the roots of $z^4 + z^2 + 1 = 0$ are $n^{\\text{th}}$ roots of unity?<｜Assistant｜><think>\n",
+                "solution": "Okay, so I have this problem: I need to find the smallest positive integer \\( n \\) such that all the roots of the equation \\( z^4 + z^2 + 1 = 0 \\) are \\( n \\)-th roots of unity. Hmm, interesting. Let me try to figure this out step by step.\n\nFirst, I remember that the roots of unity are the solutions to the equation \\( z^n = 1 \\). These roots are evenly spaced around the unit circle in the complex plane. So, if all the roots of my given equation are \\( n \\)-th roots of unity, they must lie on the unit circle and satisfy \\( z^n = 1 \\).\n\nThe given equation is a quartic: \\( z^4 + z^2 + 1 = 0 \\). Maybe I can factor this equation\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{12}\n</think>\n\nTo determine the smallest positive integer \\( n \\) such that all the roots of \\(",
+                "answer": "12"
+            }
+        },
+        {
+            "dataset": "MATH500",
+            "problem_id": "MATH500-20",
+            "question": "Let $a$ be a positive real number such that all the roots of\n\\[x^3 + ax^2 + ax + 1 = 0\\]are real.  Find the smallest possible value of $a.$",
+            "solution":"Note that $x = -1$ is always a root of $x^3 + ax^2 + ax + 1 = 0,$ so we can factor out $x + 1,$ to get\n\\[(x + 1) (x^2 + (a - 1) x + 1) = 0.\\]The quadratic factor has real roots if and only if its discriminant is nonnegative:\n\\[(a - 1)^2 - 4 \\ge 0.\\]This reduces to $a^2 - 2a - 3 \\ge 0,$ which factors as $(a + 1)(a - 3) \\ge 0.$  The smallest positive value that satisfies this inequality is $\\boxed{3}.$",
+            "answer": "3",
+            "model_a": {
+                "model_name": "Qwen/Qwen2.5-32B-Instruct",
+                "prompt_type": "step-by-step (sbs)",
+                "method": "early stopping",
+                "token_budget": 250,
+                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nLet $a$ be a positive real number such that all the roots of\n\\[x^3 + ax^2 + ax + 1 = 0\\]are real.  Find the smallest possible value of $a.$<|im_end|>\n<|im_start|>assistant\n",
+                "solution": "To find the smallest possible value of \\(a\\) such that all the roots of the polynomial \\(x^3 + ax^2 + ax + 1 = 0\\) are real, we start by considering the polynomial and its properties.\n\nFirst, let's denote the roots of the polynomial by \\(r, s, t\\). By Vieta's formulas, we know:\n\\[\nr + s + t = -a,\n\\]\n\\[\nrs + rt + st = a,\n\\]\n\\[\nrst = -1.\n\\]\n\nSince all roots are real, we can use the fact that the polynomial can be factored as:\n\\[\n(x - r)(x - s)(x - t) = x^3 - (r+s+t)x^2 + (rs+rt+st)x - rst.\n\\]\nMatching coefficients with \\(x^3 + ax^2 + ax + 1\\), we get:\n\\[\n-(r+s+t) = a,\n\\]\n\\[\nrs + rt + st = a,\n\\]\n\\[\n-rst = 1 \\implies rst =\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{3}.",
+                "answer": "3"
+            },
+            "model_b": {
+                "model_name": "Qwen/QWQ-32B-Preview",
+                "prompt_type": "step-by-step (sbs)",
+                "method": "early stopping",
+                "token_budget": 250,
+                "prompt": "<|im_start|>system\nPlease reason step by step. \nConclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.\n\nNotice: When you are interupted by the keyword **Time’s Up!**, stop reasoning immediately.\nBased on your reasoning so far, conclude with: \nTherefore, the final answer is: \\boxed{[answer]}.\nWhere [answer] is just the final number or expression that solves the problem.<|im_end|>\n<|im_start|>user\nLet $a$ be a positive real number such that all the roots of\n\\[x^3 + ax^2 + ax + 1 = 0\\]are real.  Find the smallest possible value of $a.$<|im_end|>\n<|im_start|>assistant\n",
+                "solution": "So I have this problem: find the smallest possible value of a positive real number \\( a \\) such that all the roots of the equation \\( x^3 + a x^2 + a x + 1 = 0 \\) are real. Okay, let's start by trying to understand what this is asking.\n\nFirst, I need to find the roots of the cubic equation \\( x^3 + a x^2 + a x + 1 = 0 \\) and ensure that all of them are real. Since it's a cubic equation, there are three roots in total, which could be real or complex. But the problem specifies that all roots must be real.\n\nOne approach to solving cubic equations is to try to factor them or use the rational root theorem to find possible rational roots. However, in this case, the coefficients are in terms of \\( a \\), which makes it a bit more complicated.\n\nLet me see if I can factor this polynomial. Looking at the equation:\n\n\\[ x^3 + a x^2 + a x + 1 = 0 \\]\n\nI notice that if I\n\n**Time's Up!**\nTherefore, the final answer is:\\boxed{[answer]}.",
+                "answer": "answer"
             }
         }
     ]
