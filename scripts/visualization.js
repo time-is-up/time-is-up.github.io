@@ -101,61 +101,6 @@ class Visualizer {
         if (!answer) return 'N/A';
         return this.formatMathContent(`\\(\\boxed{${answer.trim()}}\\)`);
     }
-
-    // 显示模型解答
-    showModelSolution(modelKey, modelData) {
-        // 清空现有内容
-        document.getElementById(`model-${modelKey}-prompt`).innerHTML = '';
-        document.getElementById(`model-${modelKey}-solution`).innerHTML = '';
-        document.getElementById(`model-${modelKey}-answer`).innerHTML = '';
-        document.getElementById(`model-${modelKey}-status`).className = 'answer-status';
-        
-        const promptEl = document.getElementById(`model-${modelKey}-prompt`);
-        const solutionEl = document.getElementById(`model-${modelKey}-solution`);
-        const answerEl = document.getElementById(`model-${modelKey}-answer`);
-        const statusEl = document.getElementById(`model-${modelKey}-status`);
-        const nameEl = document.getElementById(`model-${modelKey}-name`);
-        const promptTypeEl = document.getElementById(`model-${modelKey}-prompt-type`);
-        const methodEl = document.getElementById(`model-${modelKey}-method`);
-        const tokenBudgetEl = document.getElementById(`model-${modelKey}-token-budget`);
-        
-        // 显示模型信息
-        nameEl.textContent = modelData.model_name || 'N/A';
-        promptTypeEl.textContent = modelData.prompt_type || 'N/A';
-        methodEl.textContent = modelData.method || 'N/A';
-        tokenBudgetEl.textContent = modelData.token_budget || 'N/A';
-        
-        // 显示模型提示 - 修改提示文本
-        promptEl.innerHTML = this.formatMathContent(modelData.prompt) || 'Model input not available';
-    
-        // 显示模型解答
-        solutionEl.innerHTML = this.formatMathContent(modelData.solution) || 'Model solution not available';
-        
-        // 显示模型答案，使用boxed形式并添加行内公式环境
-        let answer = 'N/A';
-        if (modelData.answer && modelData.answer.trim()) {
-            const answerText = modelData.answer.trim();
-            // 直接添加boxed和行内公式环境，不进行检查
-            answer = this.formatMathContent(`\\(\\boxed{${answerText}}\\)`);
-        }
-        answerEl.innerHTML = answer;
-
-        // 显示答案状态
-        if (modelData.answer && modelData.answer.trim() === problemData.answer.trim()) {
-            statusEl.innerHTML = '✓ Correct';
-            statusEl.className = 'answer-status answer-correct';
-        } else if (modelData.answer) {
-            statusEl.innerHTML = '✗ Wrong';
-            statusEl.className = 'answer-status answer-incorrect';
-        } else {
-            statusEl.innerHTML = '? Unknown';
-            statusEl.className = 'answer-status';
-        }
-
-        // 渲染数学公式
-        this.renderMath();
-    }
-    
     
     // 格式化数学内容
     formatMathContent(content) {
